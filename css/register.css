@@ -2,13 +2,13 @@
 @import "font-awesome-ie7.min.css";
 
 body {
-    background-color: #1D3252;
+    background-color: #fff;
 
 }
 
 .label2{
 
-    color: #FFF;
+    color: black;
 
 font-family: Quicksand;
 }
@@ -23,7 +23,7 @@ font-family: Quicksand;
     border-color: white;
 }
 .titulo{
-    color: #fff;
+    color: black;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
