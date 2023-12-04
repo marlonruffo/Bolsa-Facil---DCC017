@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/bolsas.css">
-    <link rel="script" href="/js/visualizarBolsa.js">
+    <link rel="stylesheet" href="../css/modais.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
@@ -97,14 +98,14 @@
           <td>Pedro M.</td>
           <td>Monitoria</td>
           <td>3</td>
-          <td class="text-center"><button class="btn btn-danger rounded-pill">Ver</button></td>
+          <td class="text-center"><button class="btn btn-danger rounded-pill"data-toggle="modal" data-target="#exampleModal">Ver</button></td>
         </tr>
         <tr>
           <td>Cálculo</td>
           <td>Pedro M.</td>
           <td>Extensão</td>
           <td>1</td>
-          <td class="text-center"><button class="btn btn-danger rounded-pill">Ver</button></td>
+          <td class="text-center"><button class="btn btn-danger rounded-pill"data-toggle="modal" data-target="#exampleModal">Ver</button></td>
         </tr>
         <!-- Adicione mais linhas conforme necessário -->
       </tbody>
@@ -119,7 +120,63 @@
     Home &bull; Contato <br>
     &copy; 2023 Copyright: BolsaFacil. Todos os direitos reservados.
   </footer>
+  <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <form>
+        <div class="modal-header">
+          <h5 class="modal-title">Nome da Bolsa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputField1">Professor responsável:</label>
+              <input type="text" class="form-control" id="inputField1" value="" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputField2">Vagas remuneradas:</label>
+              <input type="email" class="form-control" id="inputField2" value="" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputField3">Vagas voluntárias:</label>
+              <input type="date" class="form-control" id="inputField3" value="" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputField4">Data Ingresso:</label>
+              <input type="date" class="form-control" id="inputField4" value="" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputField5">Telefone:</label>
+              <input type="text" class="form-control" id="inputField5" value="" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputField6">Matrícula:</label>
+              <input type="text" class="form-control" id="inputField6" value="" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary botaoSalvarModal">Inscrever-se</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>
 
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
