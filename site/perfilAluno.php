@@ -24,7 +24,7 @@
                     $email = "christianoliveira.coelho@estudante.ufjf.br";
                     $tipoUsuario = "Aluno";
                     $matricula = "202065249AC";
-                    $idade = 22;
+                    $idade = 21;
                     $curso = "Ciência da Computação";
                     $periodo = "8º";
                     $foto = "../img/logoUfjf.png";
@@ -41,11 +41,11 @@
                     </div>
                     <div class="mb-3">
                         <strong class="float-left">Tipo de Usuário:</strong>
-                        <p class="d-inline"><?php echo $tipoUsuario; ?></p>
+                        <input type="text" name="tipoUsuario" value="<?php echo $tipoUsuario; ?>" class="form-control rounded" readonly>
                     </div>
                     <div class="mb-3">
                         <strong class="float-left">Matrícula:</strong>
-                        <p class="d-inline"><?php echo $matricula; ?></p>
+                        <input type="text" name="matricula" value="<?php echo $matricula; ?>" class="form-control rounded" readonly>
                     </div>
                     <div class="mb-3">
                         <strong class="float-left">Idade:</strong>
@@ -59,8 +59,7 @@
                         <strong class="float-left">Período:</strong>
                         <input type="text" name="periodo" value="<?php echo $periodo; ?>" <?php echo ($tipoUsuario === "Aluno" ? "" : "readonly"); ?> class="form-control rounded">
                     </div>
-                    
-                    <!-- Adicione mais campos conforme necessário -->
+           
 
                     <!-- Upload de PDF (Currículo) -->
                     <div class="form-group mb-3 text-left">
@@ -70,10 +69,10 @@
 
                     <!-- Botões de Ação -->
                     <div class="text-center">
+                        <a href="pagina_anterior.php" class="btn btn-danger ml-2">Voltar</a>
                         <?php if ($tipoUsuario === "Aluno"): ?>
                             <button type="submit" class="btn btn-danger">Editar</button>
                         <?php endif; ?>
-                        <a href="pagina_anterior.php" class="btn btn-danger ml-2">Voltar</a>
                     </div>
                 </form>
             </div>
