@@ -10,51 +10,42 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-        <div class="container-fluid text-bg-dark p-3">
-            <a class="navbar-brand logo-nome" href="#">
-                <img class="logo-site" src="/img/logo.png" alt="logo" width="110" height="58">
-                <p class="nomeDoSite">Bolsa Fácil</p>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class=" navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0  linksDirect">
-                    <li class="nav-item">
-                        <a class="nav-link links-site" aria-current="page" href="/">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link links-site" aria-current="page" href="/perfil">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link links-site" aria-current="page" href="/projetos">Conheça</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link links-site" aria-current="page" href="/contato">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link links-site" href="/alunos">Alunos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link links-site" href="/bolsas">Bolsas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link links-site" href="/gerenciamento">Gerenciamento</a>
-                    </li>
-                    <li class="nav-item">
-                    <button type="button" class="btn btn-danger botaonav nav-link btn-login links-site" onclick="window.location.href='/login'">Login</button>
-                    </li>
-                    
-                </ul>
-                
-            </div>
-
-
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+    <a class="navbar-brand" href="#">
+      <img src="../img/logo.png" alt="Logo"width="55px" height="26px" class="d-inline-block align-text-top">
+      Bolsa Fácil
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Conheça</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contato</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Alunos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Bolsas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gerenciamento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </body>
 </html>

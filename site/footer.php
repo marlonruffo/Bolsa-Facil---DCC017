@@ -8,16 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 </head>
 <body>
-    <footer class="bg-light text-center text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: #BFBFBF;">
-        <ion-icon size = "large" name="logo-facebook"></ion-icon>
-        <ion-icon size = "large" name="logo-instagram"></ion-icon>
-        <ion-icon size = "large" name="logo-linkedin"></ion-icon>
-        </div>
+   
+<footer class="bg-secondary text-white fixed text-center py-3">
+    <a href="#" class="text-white"><i class="fab fa-facebook-square fa-2x mx-2"></i></a>
+    <a href="#" class="text-white"><i class="fab fa-instagram fa-2x mx-2"></i></a>
+    <a href="#" class="text-white"><i class="fab fa-linkedin fa-2x mx-2"></i></a>
+    <br>
+    Home &bull; Contato <br>
+    &copy; 2023 Copyright: BolsaFacil. Todos os direitos reservados.
+  </footer>
+
       
         <!-- Copyright -->
     
