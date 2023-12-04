@@ -32,7 +32,7 @@
         <h1 class="well titulo">Cadastro</h1>
         <div class="col-lg-12 well">
             <div class="row">
-                <form>
+                <form method="POST" id="frmCad" name="frmCad">
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-6 form-group">
@@ -98,11 +98,11 @@
 		<script src="../assets/js/common-scripts.js"></script>
 
 		<!--script for this page-->
-		<script src="../assets/js/MascaraValidacao.js"></script>
-		<script src="../assets/js/cadCliente.js"></script>
 		<script type="text/javascript" src="../assets/js/moment.js"></script>
 		<script src="../assets/js/locale/pt-br.js"></script>
 		<script type="text/javascript" src="../assets/js/bootstrap-datetimepicker.js"></script>
+        <script src="../js/cadUsuario.js" type="text/javascript"></script>
+        <script src="../js/Validacoes.js" type="text/javascript"></script>
     <script>
         $(document).ready(function(){		
             //alert("teste");
