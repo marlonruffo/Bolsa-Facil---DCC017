@@ -89,8 +89,8 @@
             </div>
         </section>
 
-        
+        <div style="height: 300px;"></div>
+        <?php include('footer.php'); ?>
     </body>
-    <?php include('footer.php'); ?>
 
 </html>

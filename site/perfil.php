@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,76 +11,78 @@
 
 </head>
 <body>
-    <Section class="perfil">
-        <h1 class="titulo">Perfil</h1>
-        <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img class="rounded-circle mt-5" width="150" src="/img/contato.png" alt="Imagem de perfil">
-                    <span class="font-weight-bold">Nome</span>
-                    <span class="font-weight-sem-bold">Email</span>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="p-3 py-5">
-                    <h2 class="mb-4">Informações Pessoais</h2>
-                    <form>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="inputName" class="form-label">Nome</label>
-                                <input type="text" class="form-control " id="inputName" placeholder="Seu nome">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Seu email">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="inputMatricula" class="form-label">Matrícula</label>
-                                <input type="text" class="form-control" id="inputMatricula" placeholder="Sua matrícula">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputCurso" class="form-label">Curso</label>
-                                <input type="text" class="form-control" id="inputCurso" placeholder="Seu curso">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="inputTelefone" class="form-label">Telefone</label>
-                                <input type="text" class="form-control" id="inputTelefone" placeholder="Seu telefone">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputIdade" class="form-label">Idade</label>
-                                <input type="text" class="form-control" id="inputIdade" placeholder="Sua idade">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="inputPeriodo" class="form-label">Período Atual</label>
-                                <input type="text" class="form-control" id="inputPeriodo" placeholder="Seu período atual">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="profileImage" class="form-label">Imagem de Perfil</label>
-                                <input type="file" class="form-control alinhar" id="profileImage" accept="image/*">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="resume" class="form-label">Currículo</label>
-                                <input type="file" class="form-control alinhar" id="resume" accept=".pdf, .doc, .docx">
-                            </div>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <button type="submit" class="btn btn-primary btnsalvar">Salvar Perfil</button>
-                        </div>
-                    </form>
-                </div>
+    <?php include('navbar.php'); ?>
+
+    <div class="container mt-5">
+        <div class="card mx-auto" style="width: 50%; background-color: #D9D9D9; color: black; border-radius: 15px;">
+            <h2 class="card-header text-center">Perfil do Aluno</h2>
+            <div class="card-body text-center">
+                <!-- Adicione lógica PHP para recuperar os dados do aluno do banco de dados -->
+                <?php
+                    // Simulação de dados do aluno (substitua com suas consultas)
+                    $nome = "Christian Rafael";
+                    $email = "christianoliveira.coelho@estudante.ufjf.br";
+                    $tipoUsuario = "Aluno";
+                    $matricula = "202065249AC";
+                    $idade = 22;
+                    $curso = "Ciência da Computação";
+                    $periodo = "8º";
+                    $foto = "../img/logoUfjf.png";
+                ?>
+                <img src="<?php echo $foto; ?>" alt="Foto 3x4" class="mx-auto d-block mb-3" width="90px" height="120px">
+                <form action="processar_edicao_perfil.php" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <strong class="float-left">Nome:</strong>
+                        <input type="text" name="nome" value="<?php echo $nome; ?>" class="form-control rounded">
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Email:</strong>
+                        <input type="text" name="email" value="<?php echo $email; ?>" class="form-control rounded">
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Tipo de Usuário:</strong>
+                        <p class="d-inline"><?php echo $tipoUsuario; ?></p>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Matrícula:</strong>
+                        <p class="d-inline"><?php echo $matricula; ?></p>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Idade:</strong>
+                        <input type="text" name="idade" value="<?php echo $idade; ?>" <?php echo ($tipoUsuario === "Aluno" ? "" : "readonly"); ?> class="form-control rounded">
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Curso:</strong>
+                        <input type="text" name="curso" value="<?php echo $curso; ?>" <?php echo ($tipoUsuario === "Aluno" ? "" : "readonly"); ?> class="form-control rounded">
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Período:</strong>
+                        <input type="text" name="periodo" value="<?php echo $periodo; ?>" <?php echo ($tipoUsuario === "Aluno" ? "" : "readonly"); ?> class="form-control rounded">
+                    </div>
+                    
+                    <!-- Adicione mais campos conforme necessário -->
+
+                    <!-- Upload de PDF (Currículo) -->
+                    <div class="form-group mb-3 text-left">
+                        <label for="curriculo">Currículo (PDF):</label>
+                        <input type="file" class="form-control-file" id="curriculo" name="curriculo">
+                    </div>
+
+                    <!-- Botões de Ação -->
+                    <div class="text-center">
+                        <?php if ($tipoUsuario === "Aluno"): ?>
+                            <button type="submit" class="btn btn-danger">Editar</button>
+                        <?php endif; ?>
+                        <a href="pagina_anterior.php" class="btn btn-danger ml-2">Voltar</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    
-    </Section>
+
+    <div style="height: 300px;"></div>
+    <?php include('footer.php'); ?>
 </body>
+
+
 </html>

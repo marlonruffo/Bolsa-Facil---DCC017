@@ -13,7 +13,7 @@
 </head>
 <body>
    
-<footer class="bg-secondary text-white fixed text-center py-3">
+<footer class="bg-secondary text-white fixed-bottom text-center py-3">
     <a href="#" class="text-white"><i class="fab fa-facebook-square fa-2x mx-2"></i></a>
     <a href="#" class="text-white"><i class="fab fa-instagram fa-2x mx-2"></i></a>
     <a href="#" class="text-white"><i class="fab fa-linkedin fa-2x mx-2"></i></a>
