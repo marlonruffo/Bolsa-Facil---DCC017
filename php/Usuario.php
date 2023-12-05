@@ -1,13 +1,13 @@
 <?php
 abstract class Usuario
 {
-    private $nome;
-    private $cpf;
-    private $email;
-    private $dataNasc;
-    private $dataIngresso;
-    private $senha;
-    private $telefone;
+    protected $nome;
+    protected $cpf;
+    protected $email;
+    protected $dataNasc;
+    protected $dataIngresso;
+    protected $senha;
+    protected $telefone;
 
     function __construct($nome = "", $cpf = "", $email= "", $dataNasc= "", $dataIngresso= "", $senha= "", $telefone= "") {
         $this->nome = $nome;

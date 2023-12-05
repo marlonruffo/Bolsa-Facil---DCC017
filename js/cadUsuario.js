@@ -14,7 +14,7 @@ $(function(){
         var matricula = $('#matricula').val();
         var email = $('#email').val();
         var cpf = $('#cpf').val();
-        var data_nasc = $('#data_nasc').val();
+        var data_nasc = formataDateTime($('#data_nasc').val());
         var telefone = $('#telefone').val();
         var senha = $('#senha').val();
         var confirmarSenha = $('#confirmarSenha').val();
@@ -76,6 +76,7 @@ $(function(){
 
             $.post(url, dados, function (retorno) {
                 alert(retorno);
+                window.location.href = '../site/login.php';
             });
         }else{
             alert(erro);

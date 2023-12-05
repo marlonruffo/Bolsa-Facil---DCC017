@@ -108,6 +108,7 @@
             //alert("teste");
             $("#cpf").mask("999.999.999-99");
             $("#telefone").mask("(99)99999-9999");
+            $("#data_nasc").mask("99/99/9999");
             $('#data_nasc').datetimepicker({
                 locale: 'pt_br',
                 format: 'L'
