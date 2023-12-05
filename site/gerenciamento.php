@@ -9,46 +9,58 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/gerenciamento.css">
     <link rel="stylesheet" href="../css/modais.css">
-
-
 </head>
 
 <body>
-    <Section class="gerenciamento">
-        <h1 class="titulo">Gerenciamento</h1>
-        <button type="submit" class="btn btn-primary botaoenviar mx-auto btncriar" data-toggle="modal" data-target="#criacaoBolsa">Criar Bolsa</button>
-        <table class="table table-striped tabela">
-            <thead>
-                <tr class="legenda">
-                    <th scope="col">ID</th>
-                    <th scope="col">Título</th>
-                    <th scope="col">Professor</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Vagas</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Bolsa</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#visualizarBolsa"><ion-icon name="eye-outline"></ion-icon></button>
-                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa"><ion-icon name="create-outline"></ion-icon></button>
-                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#deletarBolsa"><ion-icon name="trash-bin-outline"></ion-icon></button>
-                    </td>
-                </tr>
 
-            </tbody>
-        </table>
+    <?php include('navbar.php'); ?>
 
+    <h2 class="card-header text-primary text-center">Gerenciamento</h2>
+    <div class="text-right">
+        <button type="submit" class="btn btn-danger btncriar rounded mr-3" data-toggle="modal" data-target="#criacaoBolsa">Criar Bolsa</button>
+    </div>
+    <?php
 
+$projetos = array(
+    array("Modelagem de Sistemas", "Monitoria", "04/04", "Pedro Henrique"),
+    array("Modelagem de Sistemas", "Monitoria", "04/04", "Pedro Henrique"),
+    array("Modelagem de Sistemas", "Monitoria", "04/04", "Pedro Henrique"),
+);
+?>
 
+<table class="table table-striped tabela">
+    <thead>
+        <tr class="legenda bg-danger text-white">
+            <th scope="col">Título</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Lim. Inscrição</th>
+            <th scope="col">Responsável</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($projetos as $projeto): ?>
+            <tr>
+                <th scope="row"><?php echo $projeto[0]; ?></th>
+                <td><?php echo $projeto[1]; ?></td>
+                <td><?php echo $projeto[2]; ?></td>
+                <td><?php echo $projeto[3]; ?></td>
+                <td>
+                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#visualizarBolsa">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </button>
+                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#deletarBolsa">
+                        <ion-icon name="trash-bin-outline"></ion-icon>
+                    </button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
-
-    </Section>
     <!-- Modal Criacao de Bolsa -->
     <div class="modal" tabindex="-1" role="dialog" id="criacaoBolsa">
         <div class="modal-dialog" role="document">
@@ -244,7 +256,8 @@
     </div>
 
 
-
+    <div style="height: 300px;"></div>
+    <?php include('footer.php'); ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

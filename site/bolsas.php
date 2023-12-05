@@ -76,40 +76,44 @@
     </div>
 
     <table class="table table-secondary mt-3">
-      <colgroup>
+    <colgroup>
         <col style="border-right: 1px solid black;"> <!-- Linha à direita da primeira coluna -->
         <col style="border-right: 1px solid black;"> <!-- Linha à direita da segunda coluna -->
         <col style="border-right: 1px solid black;"> <!-- Linha à direita da terceira coluna -->
         <col style="border-right: 1px solid black;"> <!-- Linha à direita da quarta coluna -->
         <col> <!-- Última coluna, sem linha à direita -->
-      </colgroup>
-      <thead>
+    </colgroup>
+    <thead>
         <tr>
-          <th scope="col">Título</th>
-          <th scope="col">Professor</th>
-          <th scope="col">Tipo</th>
-          <th scope="col">Vagas</th>
-          <th scope="col">Ação</th>
+            <th scope="col">Título</th>
+            <th scope="col">Professor</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Vagas</th>
+            <th scope="col">Ação</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Cálculo</td>
-          <td>Pedro M.</td>
-          <td>Monitoria</td>
-          <td>3</td>
-          <td class="text-center"><button class="btn btn-danger rounded-pill"data-toggle="modal" data-target="#exampleModal">Ver</button></td>
-        </tr>
-        <tr>
-          <td>Cálculo</td>
-          <td>Pedro M.</td>
-          <td>Extensão</td>
-          <td>1</td>
-          <td class="text-center"><button class="btn btn-danger rounded-pill"data-toggle="modal" data-target="#exampleModal">Ver</button></td>
-        </tr>
-        <!-- Adicione mais linhas conforme necessário -->
-      </tbody>
-    </table>
+    </thead>
+    <tbody>
+        <?php
+        // Simulação de dados do banco de dados (substitua com suas consultas)
+        $projetos = [
+            ['Título' => 'Cálculo', 'Professor' => 'Pedro M.', 'Tipo' => 'Monitoria', 'Vagas' => 3],
+            ['Título' => 'Cálculo', 'Professor' => 'Pedro M.', 'Tipo' => 'Extensão', 'Vagas' => 1],
+            // Adicione mais linhas conforme necessário
+        ];
+
+        foreach ($projetos as $projeto) {
+            echo '<tr>';
+            echo '<td>' . $projeto['Título'] . '</td>';
+            echo '<td>' . $projeto['Professor'] . '</td>';
+            echo '<td>' . $projeto['Tipo'] . '</td>';
+            echo '<td>' . $projeto['Vagas'] . '</td>';
+            echo '<td class="text-center"><button class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#exampleModal">Ver</button></td>';
+            echo '</tr>';
+        }
+        ?>
+    </tbody>
+</table>
+
   </div>
 
   <footer class="bg-secondary text-white fixed-bottom text-center py-3">

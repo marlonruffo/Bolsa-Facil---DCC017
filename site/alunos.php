@@ -41,41 +41,52 @@
       </div>
     </div>
   
-    <table class="table table-secondary mt-3">
-      <colgroup>
-        <col style="border-right: 1px solid black;"> <!-- Linha à direita da primeira coluna -->
-        <col style="border-right: 1px solid black;"> <!-- Linha à direita da segunda coluna -->
-        <col style="border-right: 1px solid black;"> <!-- Linha à direita da terceira coluna -->
-        <col style="border-right: 1px solid black;"> <!-- Linha à direita da quarta coluna -->
-        <col> <!-- Última coluna, sem linha à direita -->
-      </colgroup>
-      <thead>
+    <?php
+// Simulação de dados do banco de dados (substitua com suas consultas)
+$alunos = array(
+    array("Aluno 1", "aluno1@example.com", "Curso A", "1º Período"),
+    array("Aluno 2", "aluno2@example.com", "Curso B", "2º Período"),
+    array("Aluno 3", "aluno3@example.com", "Curso C", "3º Período"),
+    array("Aluno 4", "aluno4@example.com", "Curso D", "4º Período"),
+    array("Aluno 5", "aluno5@example.com", "Curso E", "5º Período"),
+  
+);
+?>
+
+<table class="table table-secondary mt-3">
+    <colgroup>
+        <col style="border-right: 1px solid black;"> 
+        <col style="border-right: 1px solid black;">
+        <col style="border-right: 1px solid black;"> 
+        <col style="border-right: 1px solid black;"> 
+        <col> 
+    </colgroup>
+    <thead>
         <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Email</th>
-          <th scope="col">Curso</th>
-          <th scope="col">Período</th>
-          <th scope="col">Perfil</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Curso</th>
+            <th scope="col">Período</th>
+            <th scope="col">Perfil</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Aluno 1</td>
-          <td>aluno1@example.com</td>
-          <td>Curso A</td>
-          <td>1º Período</td>
-          <td class="text-center"><button class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#exampleModal">Ver</button></td>
-        </tr>
-        <tr>
-          <td>Aluno 2</td>
-          <td>aluno2@example.com</td>
-          <td>Curso B</td>
-          <td>2º Período</td>
-          <td class="text-center"><button class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#exampleModal">Ver</button></td>
-        </tr>
-        <!-- Adicione mais linhas conforme necessário -->
-      </tbody>
-    </table>
+    </thead>
+    <tbody>
+        <?php foreach ($alunos as $aluno): ?>
+            <tr>
+                <td><?php echo $aluno[0]; ?></td>
+                <td><?php echo $aluno[1]; ?></td>
+                <td><?php echo $aluno[2]; ?></td>
+                <td><?php echo $aluno[3]; ?></td>
+                <td class="text-center">
+                    <button class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#exampleModal">
+                        Ver
+                    </button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
   </div>
   
   <footer class="bg-secondary text-white fixed-bottom text-center py-3">
@@ -144,11 +155,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
