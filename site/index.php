@@ -41,15 +41,14 @@
           <div class="carousel-item active">
             <img src="../img/carousel1.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              
+              
             </div>
           </div>
           <div class="carousel-item">
             <img src="../img/carousel2.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              
             </div>
           </div>
           <div class="carousel-item">
@@ -62,16 +61,17 @@
         </div>
         <button class="carousel-control-prev carouselbotoes" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+          <span class="visually-hidden">Anterior</span>
         </button>
         <button class="carousel-control-next carouselbotoes" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+          <span class="visually-hidden">Próximo</span>
         </button>
       </div>
       <Section class="sobrenos">
           <h1 class="titulo">Sobre nós</h1>
-          <p class="apresentacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum lectus ipsum, sed rhoncus massa tristique ut. Nullam pulvinar, quam nec facilisis feugiat, mi est egestas erat, id posuere felis risus eu odio. Sed pulvinar mollis ante ac porta. In vitae cursus velit, ac dapibus ipsum. Aliquam ac purus vitae metus commodo cursus. Nulla mollis massa eu justo convallis, non euismod nulla sagittis. Duis eget dapibus magna. Vestibulum risus lorem, gravida a dolor placerat, lacinia sollicitudin felis. Curabitur tellus ipsum, feugiat sed elit ut, suscipit posuere orci. Quisque porta purus mauris, quis gravida massa scelerisque nec. Praesent dignissim auctor imperdiet. Vestibulum semper pellentesque turpis massa scelerisque nec . </p>
+          <p class="apresentacao">O BolsaFácil é uma solução de software desenvolvida sob medida para a Universidade Federal de Juiz de Fora (UFJF). Seu principal propósito é simplificar e aprimorar a comunicação entre professores e alunos em relação à divulgação de uma ampla gama de oportunidades de projetos acadêmicos. Este sistema abrange várias categorias de bolsas, incluindo Iniciação científica, Projetos de extensão, Treinamento profissional e Monitorias.visamos facilitar a divulgação de oportunidades de bolsas acadêmicas por parte dos professores da UFJF.
+</p>
           <img src="../img/sobrenos.png" class="img-fluid iceimagem" alt="">
       </Section>
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
