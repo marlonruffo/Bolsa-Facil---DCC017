@@ -48,5 +48,13 @@ class Bolsa
 
         return $this;
     }
+
+    public function cadastraBolsa($valor, $e_voluntaria, $id_projeto){
+        include("conecta.php");
+        $sql = "INSERT INTO bolsa (valor, e_voluntaria, fk_Projeto_idProjeto) 
+			VALUES ('$valor', '$e_voluntaria' ,'$id_projeto');";
+            $resultado = mysqli_query($conexao, $sql);
+            return $resultado;
+    }
 }
 ?>

@@ -115,5 +115,22 @@ class Projeto
 
         return $this;
     }
+
+    public function adicionaProjeto ($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $siapeProfessor){
+        include("conecta.php");
+        include("Bolsa.php");
+        $sql = "INSERT INTO projeto (nomeProjeto, tipoProjeto, metodoDeEntrada, qtdVagas , descricao, fk_Professor_siape, data_inicio_processo, data_fim_processo) 
+			VALUES ('$nomeProjeto', '$tipoProjeto' ,'$metodoDeEntrada','$qtdVagas','$descricao','$siapeProfessor','$data_inicio_processo', '$data_fim_processo');";
+            if(mysqli_query($conexao, $sql)){
+                $id_projeto = mysqli_insert_id($conexao);
+                for($i = 1; $i <= $qtdVagas; $i++){
+                    $bolsa = new bolsa();
+                    $bolsa->cadastraBolsa($valor[$i], $e_voluntaria[$i], $id_projeto);
+                }
+                return true;
+            }else {
+                return false;
+            }
+    }
 }
 ?>

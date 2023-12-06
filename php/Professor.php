@@ -73,5 +73,20 @@ class Professor extends Usuario
         $sql = "UPDATE professor SET nome= '$nome', cpf = '$cpf', email = '$email', telefone = '$telefone', dataNasc= '$dataNasc', dataIngresso = '$dataIngresso', senha = '$senha'  WHERE siape = '$SIAPE';";
 		return mysqli_query($conexao, $sql);
     }
+
+    public function ProfessorCadastraProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor){
+        include("Projeto.php");
+        $projeto = new Projeto();
+        if($projeto->adicionaProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $this->SIAPE)){
+            echo "Projeto cadastrado com sucesso!";
+        }else{
+            echo "Erro ao cadastrar projeto!";
+        }
+
+        //return $projeto->adicionaProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $this->SIAPE);
+
+
+        
+    }
 }
 ?>

@@ -95,6 +95,9 @@ function opcao($passo){
                     echo "Erro ao alterar dados";
                 }
                 break;
+            case 'cadastrar_projeto':
+                require("../site/cadastroProjeto.php");
+                break;
         }
     }else{
         echo "erro!";

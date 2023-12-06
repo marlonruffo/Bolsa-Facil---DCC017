@@ -17,7 +17,7 @@
 
     <h2 class="card-header text-primary text-center">Gerenciamento</h2>
     <div class="text-right">
-        <a href="../site/cadastrarProjeto.php">
+        <a href="../php/controller.php?p=cadastrar_projeto">
             <button class="btn btn-danger btncriar rounded mr-3 my-3" data-toggle="modal">Cadastrar Projeto</button>
         </a>
     </div>
