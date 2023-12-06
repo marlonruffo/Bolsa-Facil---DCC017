@@ -10,7 +10,8 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+  <?php session_start();?>
+  <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
     <a class="navbar-brand" href="#">
       <img src="../img/logo.png" alt="Logo"width="55px" height="26px" class="d-inline-block align-text-top">
       Bolsa Fácil
@@ -26,23 +27,8 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Perfil</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Conheça</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contato</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Alunos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Bolsas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gerenciamento</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="verificalogin.php?logout=logout">Sair</a>
         </li>
       </ul>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -266,6 +266,25 @@ $projetos = array(
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+		<script src="../assets/js/jquery.js"></script>
+		<script src="../assets/js/jquery.maskedinput.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+		<script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+		<script src="../assets/js/jquery.scrollTo.min.js"></script>
+		<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+		<!--common script for all pages-->
+		<script src="../assets/js/common-scripts.js"></script>
+
+		<!--script for this page-->
+		<script type="text/javascript" src="../assets/js/moment.js"></script>
+		<script src="../assets/js/locale/pt-br.js"></script>
+		<script type="text/javascript" src="../assets/js/bootstrap-datetimepicker.js"></script>
+        <script src="../js/Validacoes.js" type="text/javascript"></script>
 </body>
 
 </html>
