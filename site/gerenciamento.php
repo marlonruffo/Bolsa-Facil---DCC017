@@ -15,7 +15,7 @@
 
     <?php include('navbar.php'); ?>
 
-    <h2 class="card-header text-primary text-center">Gerenciamento</h2>
+    <h4 class="card-header text-primary text-left">Projetos cadastrados:</h4>
     <div class="text-right">
         <a href="../php/controller.php?p=cadastrar_projeto">
             <button class="btn btn-danger btncriar rounded mr-3 my-3" data-toggle="modal">Cadastrar Projeto</button>
@@ -30,7 +30,7 @@ $projetos = array(
 );
 ?>
 
-<table class="table table-striped tabela">
+<!--<table class="table table-striped tabela">
     <thead>
         <tr class="legenda bg-danger text-white">
             <th scope="col">Título</th>
@@ -41,12 +41,12 @@ $projetos = array(
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($projetos as $projeto): ?>
+        <?php //foreach ($projetos as $projeto): ?>
             <tr>
                 <th scope="row"><?php echo $projeto[0]; ?></th>
-                <td><?php echo $projeto[1]; ?></td>
-                <td><?php echo $projeto[2]; ?></td>
-                <td><?php echo $projeto[3]; ?></td>
+                <td><?php //echo $projeto[1]; ?></td>
+                <td><?php //echo $projeto[2]; ?></td>
+                <td><?php //echo $projeto[3]; ?></td>
                 <td>
                     <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#visualizarBolsa">
                         <ion-icon name="eye-outline"></ion-icon>
@@ -59,9 +59,9 @@ $projetos = array(
                     </button>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php //endforeach; ?>
     </tbody>
-</table>
+</table>-->
 
     <!-- Modal Criacao de Bolsa -->
     <div class="modal" tabindex="-1" role="dialog" id="criacaoBolsa">
