@@ -1,5 +1,6 @@
 <?php
 session_start();
+//$_SESSION['user_tipo'] == "1" é aluno e 2 é professor
 
 if (isset($_GET['cadastro'])) {//fazer cadastro de usuario
     //verificar se é aluno ou professor ou senao existe no sistema
@@ -45,4 +46,36 @@ if (isset($_GET['cadastro'])) {//fazer cadastro de usuario
         }
     }
 }
+
+$aux = 0;
+if (isset($_GET['p'])) {
+	$passo = $_GET['p'];
+	$aux = 1;
+}
+
+if (isset($_SESSION['user_login']) && isset($_SESSION['user_nome']) && isset($_SESSION['user_tipo']) && $aux==1){
+    opcao($passo);
+}else{
+    require("../site/login.php");
+}
+
+function opcao($passo){
+    if($_SESSION['user_tipo'] == 1){// opções do login de aluno
+        switch ($passo) {
+			case 'index':
+                require("../site/bolsas.php");
+                break;
+        }
+    }else if($_SESSION['user_tipo'] == 2){// opções login de professor
+        switch ($passo) {
+			case 'index':
+                require("../site/gerenciamento.php");
+                break;
+        }
+    }else{
+        echo "erro!";
+    }
+}
+
+
 ?>

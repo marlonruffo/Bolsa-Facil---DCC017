@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -49,14 +49,14 @@
             </a>
         </div>
         <div>
-            <form>
+            <form method="POST" id="frmLogin">
                 <div class="form-group">
-                    <label for="username">CPF:</label>
-                    <input type="text" class="form-control rounded-pill" id="username" placeholder="Digite seu CPF">
+                    <label for="user">Matricula/SIAPE:</label>
+                    <input type="text" class="form-control rounded-pill" name="user" id="user" placeholder="Digite sua matrícula/SIAPE">
                 </div>
                 <div class="form-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" class="form-control rounded-pill" id="password" placeholder="Digite sua senha">
+                    <label for="senha">Senha:</label>
+                    <input type="password" class="form-control rounded-pill" id="senha" name="senha" placeholder="Digite sua senha">
                 </div>
                 <button type="submit" class="btn btn-danger rounded-pill btn-block">Entrar</button>
                 <!--<button type="submit" class="btn btn-link btn-block" style="text-decoration: underline;">Não possui uma conta? Criar</button>-->
@@ -75,6 +75,26 @@
         Home &bull; Contato <br>
         &copy; 2023 Copyright: BolsaFacil. Todos os direitos reservados.
     </footer>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+		<script src="../assets/js/jquery.js"></script>
+		<script src="../assets/js/jquery.maskedinput.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+		<script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+		<script src="../assets/js/jquery.scrollTo.min.js"></script>
+		<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+		<!--common script for all pages-->
+		<script src="../assets/js/common-scripts.js"></script>
+
+		<!--script for this page-->
+		<script type="text/javascript" src="../assets/js/moment.js"></script>
+		<script src="../assets/js/locale/pt-br.js"></script>
+		<script type="text/javascript" src="../assets/js/bootstrap-datetimepicker.js"></script>
+        <script src="../js/login.js" type="text/javascript"></script>
+        <script src="../js/Validacoes.js" type="text/javascript"></script>
 </body>
 
 </html>
