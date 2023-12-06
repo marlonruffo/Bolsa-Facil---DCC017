@@ -83,5 +83,39 @@ class Aluno extends Usuario
             $resultado = mysqli_query($conexao, $sql);
             return $resultado; 
     }
+
+    public function buscaAluno($matricula){
+        include ('conecta.php');
+        $sql = "SELECT * FROM aluno WHERE matricula = '$matricula';";
+        $resultado = mysqli_query($conexao, $sql);
+        if($aluno = mysqli_fetch_array($resultado)){
+            $this->nome = $aluno['nome'];
+            $this->cpf = $aluno['cpf'];
+            $this->email = $aluno['email'];
+            $this->telefone = $aluno['telefone'];
+            $this->matricula = $aluno['matricula'];
+            $this->dataNasc = $aluno['dataNasc'];
+            $this->dataIngresso = $aluno['dataIngresso'];
+            $this->curso = $aluno['curso'];
+            $this->periodo = $aluno['periodo'];
+            $this->senha = $aluno['senha'];
+        }
+    }
+
+    public function editarDadosAluno($nome , $cpf , $email, $dataNasc, $dataIngresso, $senha, $telefone, $matricula, $curso, $periodo){
+        $this->setNome($nome);
+        $this->setCpf($cpf);
+        $this->setEmail($email);
+        $this->setDataNasc($dataNasc);
+        $this->setDataIngresso($dataIngresso);
+        $this->setSenha($senha);
+        $this->setTelefone(($telefone));
+        $this->setCurso($curso);
+        $this->setPeriodo($periodo);
+        
+        include("conecta.php");
+        $sql = "UPDATE aluno SET nome= '$nome', cpf = '$cpf', email = '$email', telefone = '$telefone', dataNasc= '$dataNasc', dataIngresso = '$dataIngresso', senha = '$senha', curso = '$curso', periodo = '$periodo'  WHERE matricula = '$matricula';";
+		return mysqli_query($conexao, $sql);
+    }
 }
 ?>

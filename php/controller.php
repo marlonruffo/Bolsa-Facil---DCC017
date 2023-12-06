@@ -68,6 +68,15 @@ function opcao($passo){
             case 'ver_perfil':
                 require("../site/perfilAluno.php");
                 break;
+            case 'editar_perfil':
+                include('Aluno.php');
+                $aluno = new Aluno();
+                if($aluno->editarDadosAluno($_POST['nome'],$_POST['cpf'],$_POST['email'],$_POST['data_nasc'], $_POST['data_ing'], $_POST['senha'], $_POST['telefone'], $_POST['matricula'] ,$_POST['curso'], $_POST['periodo'] )){
+                    echo "Dados alterados com sucesso!";
+                }else{
+                    echo "Erro ao alterar dados";
+                }
+                break;
         }
     }else if($_SESSION['user_tipo'] == 2){// opções login de professor
         switch ($passo) {

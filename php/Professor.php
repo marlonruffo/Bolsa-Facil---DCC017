@@ -54,7 +54,6 @@ class Professor extends Usuario
             $this->email = $prof['email'];
             $this->telefone = $prof['telefone'];
             $this->SIAPE = $prof['siape'];
-            $this->telefone = $prof['telefone'];
             $this->dataNasc = $prof['dataNasc'];
             $this->dataIngresso = $prof['dataIngresso'];
             $this->senha = $prof['senha'];
@@ -71,7 +70,7 @@ class Professor extends Usuario
         $this->setTelefone(($telefone));
         
         include("conecta.php");
-        $sql = "UPDATE professor SET nome= '$nome', cpf = '$cpf', email = '$email', telefone = '$telefone', dataNasc= '$dataNasc', dataIngresso = '$dataIngresso', senha = '$senha'  WHERE siape= ".$SIAPE;
+        $sql = "UPDATE professor SET nome= '$nome', cpf = '$cpf', email = '$email', telefone = '$telefone', dataNasc= '$dataNasc', dataIngresso = '$dataIngresso', senha = '$senha'  WHERE siape = '$SIAPE';";
 		return mysqli_query($conexao, $sql);
     }
 }

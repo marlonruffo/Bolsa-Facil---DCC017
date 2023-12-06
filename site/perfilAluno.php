@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -8,71 +8,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css"/>
 
 </head>
+
 <body>
-    <?php include('navbar.php'); ?>
+    <?php session_start();
+    include('navbar.php'); ?>
 
     <div class="container mt-5">
         <div class="card mx-auto" style="width: 50%; background-color: #D9D9D9; color: black; border-radius: 15px;">
-            <h2 class="card-header text-center">Perfil do Aluno</h2>
+            <h2 class="card-header text-center">Dados Pessoais</h2>
             <div class="card-body text-center">
                 <!-- Adicione lógica PHP para recuperar os dados do aluno do banco de dados -->
                 <?php
-                    // Simulação de dados do aluno (substitua com suas consultas)
-                    $nome = "Christian Rafael";
-                    $email = "christianoliveira.coelho@estudante.ufjf.br";
-                    $tipoUsuario = "Aluno";
-                    $matricula = "202065249AC";
-                    $idade = 21;
-                    $curso = "Ciência da Computação";
-                    $periodo = "8º";
-                    $foto = "../img/logoUfjf.png";
+                    include("../php/Aluno.php");
+                    $aluno = new Aluno();
+                    $aluno->buscaAluno($_SESSION['user_login']);
+
                 ?>
-                <img src="<?php echo $foto; ?>" alt="Foto 3x4" class="mx-auto d-block mb-3" width="90px" height="120px">
-                <form action="processar_edicao_perfil.php" method="post" enctype="multipart/form-data">
+                <!--<img src="" alt="Foto 3x4" class="mx-auto d-block mb-3" width="90px" height="120px">-->
+                <form method="post" id="editaPerfilAluno"  name="editaPerfilAluno" enctype="multipart/form-data">
                     <div class="mb-3">
                         <strong class="float-left">Nome:</strong>
-                        <input type="text" name="nome" value="<?php echo $nome; ?>" class="form-control rounded">
+                        <input type="text" name="nome" id="nome" value="<?php echo $aluno->getNome(); ?>" class="form-control rounded">
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">CPF:</strong>
+                        <input type="text" name="cpf" id="cpf" value="<?php echo $aluno->getCpf(); ?>" class="form-control rounded">
                     </div>
                     <div class="mb-3">
                         <strong class="float-left">Email:</strong>
-                        <input type="text" name="email" value="<?php echo $email; ?>" class="form-control rounded">
+                        <input type="text" name="email" id="email" value="<?php echo $aluno->getEmail(); ?>" class="form-control rounded">
                     </div>
                     <div class="mb-3">
-                        <strong class="float-left">Tipo de Usuário:</strong>
-                        <input type="text" name="tipoUsuario" value="<?php echo $tipoUsuario; ?>" class="form-control rounded" readonly>
+                        <strong class="float-left">Telefone:</strong>
+                        <input type="text" name="telefone" id="telefone" value="<?php echo $aluno->getTelefone(); ?>" placeholder="(XX)YYYYY-ZZZZ" class="form-control rounded">
                     </div>
                     <div class="mb-3">
-                        <strong class="float-left">Matrícula:</strong>
-                        <input type="text" name="matricula" value="<?php echo $matricula; ?>" class="form-control rounded" readonly>
+                    <strong class="float-left">Data de Nascimento:</strong>
+                        <div class='input-group'>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            <input type='text' id="data_nasc" name="data_nasc" placeholder="XX/XX/XXXX" value="<?php echo data($aluno->getDataNasc()); ?>" class="form-control rounded"/>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <strong class="float-left">Idade:</strong>
-                        <input type="text" name="idade" value="<?php echo $idade; ?>" <?php echo ($tipoUsuario === "Aluno" ? "" : "readonly"); ?> class="form-control rounded">
+                    <strong class="float-left">Data de Ingresso:</strong>
+                        <div class='input-group'>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            <input type='text' id="data_ing" name="data_ing" placeholder="XX/XX/XXXX" value="<?php if($aluno->getDataIngresso() != ''){echo data($aluno->getDataIngresso());} ?>" class="form-control rounded"/>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <strong class="float-left">Curso:</strong>
-                        <input type="text" name="curso" value="<?php echo $curso; ?>" <?php echo ($tipoUsuario === "Aluno" ? "" : "readonly"); ?> class="form-control rounded">
+                        <input type="text" name="curso" id= "curso" value="<?php echo $aluno->getCurso(); ?>" class="form-control rounded">
                     </div>
+
                     <div class="mb-3">
                         <strong class="float-left">Período:</strong>
-                        <input type="text" name="periodo" value="<?php echo $periodo; ?>" <?php echo ($tipoUsuario === "Aluno" ? "" : "readonly"); ?> class="form-control rounded">
-                    </div>
-           
-
-                    <!-- Upload de PDF (Currículo) -->
-                    <div class="form-group mb-3 text-left">
-                        <label for="curriculo">Currículo (PDF):</label>
-                        <input type="file" class="form-control-file" id="curriculo" name="curriculo">
+                        <input type="text" name="periodo" id= "periodo" value="<?php echo $aluno->getPeriodo(); ?>" class="form-control rounded">
                     </div>
 
+                    <div class="mb-3">
+                        <strong class="float-left">Matrícula:</strong>
+                        <input type="text" name="matricula" id= "matricula" value="<?php echo $aluno->getMatricula(); ?>" class="form-control rounded" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Senha:</strong>
+                        <input type="password" name="senha" id= "senha" value="<?php echo $aluno->getSenha(); ?>"class="form-control rounded">
+                    </div>
+                    <div class="mb-3">
+                        <strong class="float-left">Confirmar senha:</strong>
+                        <input type="password" name="confirmarSenha" id= "confirmarSenha" value="<?php echo $aluno->getSenha(); ?>"class="form-control rounded">
+                    </div>
+            
                     <!-- Botões de Ação -->
                     <div class="text-center">
-                        <a href="pagina_anterior.php" class="btn btn-danger ml-2">Voltar</a>
-                        <?php if ($tipoUsuario === "Aluno"): ?>
-                            <button type="submit" class="btn btn-danger">Editar</button>
-                        <?php endif; ?>
+                        <button type="submit" class="btn btn-danger">Editar</button>
                     </div>
                 </form>
             </div>
@@ -81,6 +97,49 @@
 
     <div style="height: 300px;"></div>
     <?php include('footer.php'); ?>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+		<script src="../assets/js/jquery.js"></script>
+		<script src="../assets/js/jquery.maskedinput.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+		<script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+		<script src="../assets/js/jquery.scrollTo.min.js"></script>
+		<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+		<!--common script for all pages-->
+		<script src="../assets/js/common-scripts.js"></script>
+
+		<!--script for this page-->
+		<script type="text/javascript" src="../assets/js/moment.js"></script>
+		<script src="../assets/js/locale/pt-br.js"></script>
+		<script type="text/javascript" src="../assets/js/bootstrap-datetimepicker.js"></script>
+        <script src="../js/editarAluno.js" type="text/javascript"></script>
+        <script src="../js/Validacoes.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){		
+            //alert("teste");
+            $("#cpf").mask("999.999.999-99");
+            $("#telefone").mask("(99)99999-9999");
+            $("#data_nasc").mask("99/99/9999");
+            $("#data_ing").mask("99/99/9999");
+            $('#data_nasc').datetimepicker({
+                locale: 'pt_br',
+                format: 'L'
+            });
+            $('#data_ing').datetimepicker({
+                locale: 'pt_br',
+                format: 'L'
+            });
+        });
+    </script>
+
+<?php
+function data($data){
+    return date("d/m/Y", strtotime($data));
+} 
+?>
 </body>
 
 
