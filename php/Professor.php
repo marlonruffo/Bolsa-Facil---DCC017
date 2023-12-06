@@ -43,5 +43,36 @@ class Professor extends Usuario
             $resultado = mysqli_query($conexao, $sql);
             return $resultado; 
     }
+
+    public function buscaProfessor($SIAPE){
+        include ('conecta.php');
+        $sql = "SELECT * FROM professor WHERE siape = '$SIAPE';";
+        $resultado = mysqli_query($conexao, $sql);
+        if($prof = mysqli_fetch_array($resultado)){
+            $this->nome = $prof['nome'];
+            $this->cpf = $prof['cpf'];
+            $this->email = $prof['email'];
+            $this->telefone = $prof['telefone'];
+            $this->SIAPE = $prof['siape'];
+            $this->telefone = $prof['telefone'];
+            $this->dataNasc = $prof['dataNasc'];
+            $this->dataIngresso = $prof['dataIngresso'];
+            $this->senha = $prof['senha'];
+        }
+    }
+
+    public function editarDadosProfessor($nome , $cpf , $email, $dataNasc, $dataIngresso, $senha, $telefone, $SIAPE){
+        $this->setNome($nome);
+        $this->setCpf($cpf);
+        $this->setEmail($email);
+        $this->setDataNasc($dataNasc);
+        $this->setDataIngresso($dataIngresso);
+        $this->setSenha($senha);
+        $this->setTelefone(($telefone));
+        
+        include("conecta.php");
+        $sql = "UPDATE professor SET nome= '$nome', cpf = '$cpf', email = '$email', telefone = '$telefone', dataNasc= '$dataNasc', dataIngresso = '$dataIngresso', senha = '$senha'  WHERE siape= ".$SIAPE;
+		return mysqli_query($conexao, $sql);
+    }
 }
 ?>

@@ -13,43 +13,7 @@
 </head>
 <body>
   
-  <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
-    <a class="navbar-brand" href="#">
-      <img src="../img/logo.png" alt="Logo"width="55px" height="26px" class="d-inline-block align-text-top">
-      Bolsa Fácil
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Perfil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Conheça</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contato</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Alunos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Bolsas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gerenciamento</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <?php include('navbar.php'); ?>
 
   <div class="container mt-3">
     <h2 class="text-primary text-center">Lista de Bolsas</h2>
@@ -116,14 +80,7 @@
 
   </div>
 
-  <footer class="bg-secondary text-white fixed-bottom text-center py-3">
-    <a href="#" class="text-white"><i class="fab fa-facebook-square fa-2x mx-2"></i></a>
-    <a href="#" class="text-white"><i class="fab fa-instagram fa-2x mx-2"></i></a>
-    <a href="#" class="text-white"><i class="fab fa-linkedin fa-2x mx-2"></i></a>
-    <br>
-    Home &bull; Contato <br>
-    &copy; 2023 Copyright: BolsaFacil. Todos os direitos reservados.
-  </footer>
+  <?php include('footer.php'); ?>
   <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

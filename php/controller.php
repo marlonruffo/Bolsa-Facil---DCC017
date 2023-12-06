@@ -45,31 +45,46 @@ if (isset($_GET['cadastro'])) {//fazer cadastro de usuario
             }
         }
     }
-}
-
-$aux = 0;
-if (isset($_GET['p'])) {
-	$passo = $_GET['p'];
-	$aux = 1;
-}
-
-if (isset($_SESSION['user_login']) && isset($_SESSION['user_nome']) && isset($_SESSION['user_tipo']) && $aux==1){
-    opcao($passo);
 }else{
-    require("../site/login.php");
+    $aux = 0;
+    if (isset($_GET['p'])) {
+        $passo = $_GET['p'];
+        $aux = 1;
+    }
+    
+    if (isset($_SESSION['user_login']) && isset($_SESSION['user_nome']) && isset($_SESSION['user_tipo']) && $aux==1){
+        opcao($passo);
+    }else{
+        require("../site/login.php");
+    }
 }
 
 function opcao($passo){
     if($_SESSION['user_tipo'] == 1){// opções do login de aluno
         switch ($passo) {
-			case 'index':
+            case 'index':
                 require("../site/bolsas.php");
+                break;
+            case 'ver_perfil':
+                require("../site/perfilAluno.php");
                 break;
         }
     }else if($_SESSION['user_tipo'] == 2){// opções login de professor
         switch ($passo) {
-			case 'index':
+            case 'index':
                 require("../site/gerenciamento.php");
+                break;
+            case 'ver_perfil':
+                require("../site/perfilProfessor.php");
+                break;
+            case 'editar_perfil':
+                include('Professor.php');
+                $professor = new Professor();
+                if($professor->editarDadosProfessor($_POST['nome'],$_POST['cpf'],$_POST['email'],$_POST['data_nasc'], $_POST['data_ing'], $_POST['senha'], $_POST['telefone'], $_POST['siape'] )){
+                    echo "Dados alterados com sucesso!";
+                }else{
+                    echo "Erro ao alterar dados";
+                }
                 break;
         }
     }else{
