@@ -17,7 +17,9 @@
 
     <h2 class="card-header text-primary text-center">Gerenciamento</h2>
     <div class="text-right">
-        <button type="submit" class="btn btn-danger btncriar rounded mr-3" data-toggle="modal" data-target="#criacaoBolsa">Criar Bolsa</button>
+        <a href="../site/cadastrarProjeto.php">
+            <button class="btn btn-danger btncriar rounded mr-3 my-3" data-toggle="modal">Cadastrar Projeto</button>
+        </a>
     </div>
     <?php
 
