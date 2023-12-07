@@ -99,7 +99,7 @@ class Professor extends Usuario
         return $resultado;
     }
     
-    public function ProfessorCadastraPRequisito($requisitos)
+    /*public function ProfessorCadastraPRequisito($requisitos)
     {
         include("conecta.php");
     
@@ -121,7 +121,7 @@ class Professor extends Usuario
         mysqli_stmt_close($resultado);
     
         return "Pré-requisitos cadastrados com sucesso!";
-    }
+    }*/
      
 
 }

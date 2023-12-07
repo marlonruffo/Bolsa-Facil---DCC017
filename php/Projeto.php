@@ -6,6 +6,7 @@ class Projeto
     private $metodoDeEntrada;
     private $qtdVagas;
     private $descricao;
+    private $preRequisitos;
     
 
     function __construct($nomeProjeto= "", $tipo= "", $metodoDeEntrada= "", $qtdVagas= "", $descricao= "") {
@@ -153,5 +154,25 @@ class Projeto
         return $resultado;
     }
 
+
+    /**
+     * Get the value of preRequisitos
+     */ 
+    public function getPreRequisitos()
+    {
+        return $this->preRequisitos;
+    }
+
+    /**
+     * Set the value of preRequisitos
+     *
+     * @return  self
+     */ 
+    public function setPreRequisitos($preRequisitos)
+    {
+        $this->preRequisitos = $preRequisitos;
+
+        return $this;
+    }
 }
 ?>
