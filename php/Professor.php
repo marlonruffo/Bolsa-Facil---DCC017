@@ -84,9 +84,13 @@ class Professor extends Usuario
         }
 
         //return $projeto->adicionaProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $this->SIAPE);
+    }
 
-
-        
+    public function buscaProjetosProf(){
+        include ('conecta.php');
+        $sql = "SELECT * FROM projeto WHERE fk_Professor_siape = '$this->SIAPE';";
+        $resultado = mysqli_query($conexao, $sql);
+        return $resultado;
     }
 }
 ?>

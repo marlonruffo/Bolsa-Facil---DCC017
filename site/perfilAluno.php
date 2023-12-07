@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <?php session_start();
-    include('navbar.php'); ?>
+
+    <?php include('navbar.php'); ?>
 
     <div class="container mt-5">
         <div class="card mx-auto" style="width: 50%; background-color: #D9D9D9; color: black; border-radius: 15px;">

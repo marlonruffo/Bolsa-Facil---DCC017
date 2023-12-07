@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php session_start();
+    <?php
     include('navbar.php'); ?>
 
     <div class="container mt-5">
@@ -100,6 +100,7 @@
 
 		<!--common script for all pages-->
 		<script src="../assets/js/common-scripts.js"></script>
+        
 
 		<!--script for this page-->
 		<script type="text/javascript" src="../assets/js/moment.js"></script>

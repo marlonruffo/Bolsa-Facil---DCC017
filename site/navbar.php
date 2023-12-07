@@ -10,7 +10,6 @@
 
 </head>
 <body>
-  <?php session_start();?>
   <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
     <a class="navbar-brand" href="#">
       <img src="../img/logo.png" alt="Logo"width="55px" height="26px" class="d-inline-block align-text-top">
@@ -24,8 +23,8 @@
         <li class="nav-item active">
           <a class="nav-link" href="../php/controller.php?p=index">Início</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../php/controller.php?p=ver_perfil">Perfil</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="../php/controller.php?p=ver_perfil">Perfil - <?php echo $_SESSION['user_nome']; ?></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="../php/verificalogin.php?logout=logout">Sair</a>
