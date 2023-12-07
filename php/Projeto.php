@@ -132,5 +132,19 @@ class Projeto
                 return false;
             }
     }
+
+    public function buscaProjetoId($idProjeto){
+        include ('conecta.php');
+        $sql = "SELECT * FROM projeto WHERE idProjeto = '$idProjeto';";
+        $resultado = mysqli_query($conexao, $sql);
+        return $resultado;
+    }
+
+    public function editaProjeto ($idProjeto, $nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas){
+        include("conecta.php");
+        $sql = "UPDATE projeto SET nomeProjeto= '$nomeProjeto', tipoProjeto = '$tipoProjeto', metodoDeEntrada = '$metodoDeEntrada', qtdVagas = '$qtdVagas', descricao= '$descricao', data_inicio_processo = '$data_inicio_processo', data_fim_processo = '$data_fim_processo'  WHERE idProjeto = '$idProjeto';";
+		return mysqli_query($conexao, $sql);
+    }
+
 }
 ?>

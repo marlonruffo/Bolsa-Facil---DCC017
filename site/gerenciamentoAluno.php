@@ -55,7 +55,7 @@
                                         <td><?=data($linha['data_inicio_processo'])?></td>
                                         <td><?=data($linha['data_fim_processo'])?></td>
                                         <td class="text-center">
-                                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa">
+                                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa" onclick="carrega_projeto_id(<?=$linha['idProjeto']?>)">
                                             <ion-icon name="create-outline"></ion-icon>
                                         </button>
                                         </td>
@@ -70,38 +70,6 @@
             </div><!-- /row -->
         </section>
     </section>
-<!--<table class="table table-striped tabela">
-    <thead>
-        <tr class="legenda bg-danger text-white">
-            <th scope="col">Título</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Lim. Inscrição</th>
-            <th scope="col">Responsável</th>
-            <th scope="col">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php //foreach ($projetos as $projeto): ?>
-            <tr>
-                <th scope="row"><?php //echo $projeto[0]; ?></th>
-                <td><?php //echo $projeto[1]; ?></td>
-                <td><?php //echo $projeto[2]; ?></td>
-                <td><?php //echo $projeto[3]; ?></td>
-                <td>
-                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#visualizarBolsa">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </button>
-                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa">
-                        <ion-icon name="create-outline"></ion-icon>
-                    </button>
-                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#deletarBolsa">
-                        <ion-icon name="trash-bin-outline"></ion-icon>
-                    </button>
-                </td>
-            </tr>
-        <?php //endforeach; ?>
-    </tbody>
-</table>-->
 
     <!-- Modal Criacao de Bolsa -->
     <div class="modal" tabindex="-1" role="dialog" id="criacaoBolsa">
@@ -231,44 +199,9 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField1">Título:</label>
-                                <input type="text" class="form-control" id="inputField1" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField1">Professor responsável:</label>
-                                <input type="text" class="form-control" id="inputField1" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField2">Vagas remuneradas:</label>
-                                <input type="email" class="form-control" id="inputField2" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField3">Vagas voluntárias:</label>
-                                <input type="number" class="form-control" id="inputField3" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField4">Data Ingresso:</label>
-                                <input type="date" class="form-control" id="inputField4" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField5">Telefone:</label>
-                                <input type="text" class="form-control" id="inputField5" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField6">Matrícula:</label>
-                                <input type="text" class="form-control" id="inputField6" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                    </div>
+                    <div class="modal-body" id="body"></div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary botaoSalvarModal">Editar</button>
+                        <button type="submit" class="btn btn-primary botaoSalvarModal">Me inscrever</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                 </form>
@@ -333,6 +266,7 @@
 		<script src="../assets/js/locale/pt-br.js"></script>
 		<script type="text/javascript" src="../assets/js/bootstrap-datetimepicker.js"></script>
         <script src="../js/Validacoes.js" type="text/javascript"></script>
+        <script src="../js/cadProjeto.js" type="text/javascript"></script>
         <script>
 			$(document).ready(function() {
                 new DataTable('#tabelaProjetosProf');

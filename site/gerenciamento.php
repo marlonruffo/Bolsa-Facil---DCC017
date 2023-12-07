@@ -7,7 +7,7 @@
     <title>Bolsa fácil</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/gerenciamento.css">
+    <link rel="stylesheet" href="../css/gerenciamento.css">
     <link rel="stylesheet" href="../css/modais.css">
     <link href="../assets/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css"/>
@@ -59,7 +59,7 @@
                                         <td><?=data($linha['data_inicio_processo'])?></td>
                                         <td><?=data($linha['data_fim_processo'])?></td>
                                         <td class="text-center">
-                                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa">
+                                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa" onclick="carrega_projeto_id(<?=$linha['idProjeto']?>)">
                                             <ion-icon name="create-outline"></ion-icon>
                                         </button>
                                         </td>
@@ -74,38 +74,7 @@
             </div><!-- /row -->
         </section>
     </section>
-<!--<table class="table table-striped tabela">
-    <thead>
-        <tr class="legenda bg-danger text-white">
-            <th scope="col">Título</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Lim. Inscrição</th>
-            <th scope="col">Responsável</th>
-            <th scope="col">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php //foreach ($projetos as $projeto): ?>
-            <tr>
-                <th scope="row"><?php //echo $projeto[0]; ?></th>
-                <td><?php //echo $projeto[1]; ?></td>
-                <td><?php //echo $projeto[2]; ?></td>
-                <td><?php //echo $projeto[3]; ?></td>
-                <td>
-                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#visualizarBolsa">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </button>
-                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa">
-                        <ion-icon name="create-outline"></ion-icon>
-                    </button>
-                    <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#deletarBolsa">
-                        <ion-icon name="trash-bin-outline"></ion-icon>
-                    </button>
-                </td>
-            </tr>
-        <?php //endforeach; ?>
-    </tbody>
-</table>-->
+
 
     <!-- Modal Criacao de Bolsa -->
     <div class="modal" tabindex="-1" role="dialog" id="criacaoBolsa">
@@ -164,8 +133,6 @@
             </div>
         </div>
     </div>
-
-    <?php include('footer.php'); ?>
 
     <!-- Modal Visualizar Bolsa -->
     <div class="modal" tabindex="-1" role="dialog" id="visualizarBolsa">
@@ -237,9 +204,9 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="body"></div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary botaoSalvarModal">Editar</button>
+                        <button type="button" class="btn btn-primary botaoSalvarModal" onclick="editaProjeto()">Editar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                 </form>
@@ -303,6 +270,7 @@
 		<script src="../assets/js/locale/pt-br.js"></script>
 		<script type="text/javascript" src="../assets/js/bootstrap-datetimepicker.js"></script>
         <script src="../js/Validacoes.js" type="text/javascript"></script>
+        <script src="../js/cadProjeto.js" type="text/javascript"></script>
         <script>
 			$(document).ready(function() {
                 new DataTable('#tabelaProjetosProf');
@@ -317,6 +285,7 @@
         return date("d/m/Y", strtotime($data));
     } 
 ?>
+<?php include('footer.php'); ?>
 </body>
 
 </html>

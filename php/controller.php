@@ -63,7 +63,7 @@ function opcao($passo){
     if($_SESSION['user_tipo'] == 1){// opções do login de aluno
         switch ($passo) {
             case 'index':
-                require("../site/bolsas.php");
+                require("../site/gerenciamentoAluno.php");
                 break;
             case 'ver_perfil':
                 require("../site/perfilAluno.php");
@@ -76,6 +76,18 @@ function opcao($passo){
                 }else{
                     echo "Erro ao alterar dados";
                 }
+                break;
+            case 'ver_bolsa_id':
+                include("Projeto.php");
+                $projeto = new Projeto();
+                $resultado = $projeto->buscaProjetoId($_POST['projeto_id']);
+                $projeto_id = mysqli_fetch_array($resultado);
+    
+                include("Bolsa.php");
+                $bolsa = new Bolsa();
+                $resultado2 = $bolsa->buscaBolsaProjeto($_POST['projeto_id']);
+    
+                require("../site/modal_edita_projeto.php");
                 break;
         }
     }else if($_SESSION['user_tipo'] == 2){// opções login de professor
@@ -98,6 +110,37 @@ function opcao($passo){
             case 'cadastrar_projeto':
                 require("../site/cadastroProjeto.php");
                 break;
+            case 'ver_bolsa_id':
+                include("Projeto.php");
+                $projeto = new Projeto();
+                $resultado = $projeto->buscaProjetoId($_POST['projeto_id']);
+                $projeto_id = mysqli_fetch_array($resultado);
+
+                include("Bolsa.php");
+                $bolsa = new Bolsa();
+                $resultado2 = $bolsa->buscaBolsaProjeto($_POST['projeto_id']);
+
+                require("../site/modal_edita_projeto.php");
+                break;
+            case 'editar_projeto_id':
+                include("Projeto.php");
+                $projeto = new Projeto();
+                $idProjeto = $_POST['idProjeto'];
+                $nomeProjeto = $_POST['nomeProjeto'];
+                $tipoProjeto = $_POST['tipoProjeto'];
+                $descricao = $_POST['descricao'];
+                $data_inicio_processo = $_POST['data_inicio_processo'];
+                $data_fim_processo = $_POST['data_fim_processo'];
+                $metodoDeEntrada = $_POST['metodoDeEntrada'];
+                $qtdVagas = $_POST['qtdVagas'];
+                if($projeto->editaProjeto($idProjeto, $nomeProjeto, $tipoProjeto, $descricao, $data_inicio_processo, $data_fim_processo, $metodoDeEntrada, $qtdVagas)){
+                    echo "Projeto editado com sucesso!";
+                }else{
+                    echo "Erro ao editar projeto!";
+                }
+
+                break;
+
         }
     }else{
         echo "erro!";

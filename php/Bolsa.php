@@ -56,5 +56,12 @@ class Bolsa
             $resultado = mysqli_query($conexao, $sql);
             return $resultado;
     }
+
+    public function buscaBolsaProjeto($id_projeto){
+        include ('conecta.php');
+        $sql = "SELECT * FROM bolsa WHERE fk_Projeto_idProjeto = '$id_projeto';";
+        $resultado = mysqli_query($conexao, $sql);
+        return $resultado;
+    }
 }
 ?>
