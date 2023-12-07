@@ -34,6 +34,13 @@
           <li class="nav-item active">
             <a class="nav-link" href="../php/controller.php?p=ver_perfil">Perfil - <?php echo $_SESSION['user_nome']; ?></a>
           </li>
+        
+          <?php if($_SESSION['user_tipo'] == 2){
+          ?> <li class="nav-item active">
+             <a class="nav-link" href="../php/controller.php?p=cadastrar_prerequisitos">Cadastrar Pré Requisitos</a>
+            </li><?php
+          }?>
+        
           <li class="nav-item active">
             <!--<a class="nav-link" href="../php/verificalogin.php?logout=logout">Sair</a>-->
             <button class="nav-link" onclick="sair()">Sair</button>
