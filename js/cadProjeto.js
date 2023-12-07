@@ -170,3 +170,16 @@ function carrega_projeto_id(projeto_id) {
         $('#body').html(retorno);
     });
 }
+
+function confirmarInscricao(){
+	if (window.confirm("Deseja se cadastrar no projeto?")) {
+		let idProjeto = $("#idProjeto").val();
+		var url = "../php/controller.php?p=inscreve_aluno_projeto";
+		var dados = {idProjeto: idProjeto};
+
+		$.post(url, dados, function (retorno) {
+			alert(retorno);
+			window.location.href = '../php/controller.php?p=index';
+		});
+	  }
+}

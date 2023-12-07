@@ -201,7 +201,7 @@
                     </div>
                     <div class="modal-body" id="body"></div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary botaoSalvarModal">Me inscrever</button>
+                        <button type="button" class="btn btn-primary botaoSalvarModal" onclick="confirmarInscricao()">Me inscrever</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                 </form>

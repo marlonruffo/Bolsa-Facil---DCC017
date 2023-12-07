@@ -11,30 +11,43 @@
     .corDeFundo {
       background-color: #B22D30;
     }
+    .styleNav{
+      margin-bottom: 5%;
+    }
     </style>
 </head>
 <body> 
-  <nav class="navbar navbar-expand-lg corDeFundo navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">
-      <img src="../img/logo.png" alt="Logo"width="55px" height="26px" class="d-inline-block align-text-top">
-      Bolsa Fácil
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="../php/controller.php?p=index">Início</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="../php/controller.php?p=ver_perfil">Perfil - <?php echo $_SESSION['user_nome']; ?></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="../php/verificalogin.php?logout=logout">Sair</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <div class="styleNav">
+    <nav class="navbar navbar-expand-lg corDeFundo navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">
+        <img src="../img/logo.png" alt="Logo"width="55px" height="26px" class="d-inline-block align-text-top">
+        Bolsa Fácil
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../php/controller.php?p=index">Início</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="../php/controller.php?p=ver_perfil">Perfil - <?php echo $_SESSION['user_nome']; ?></a>
+          </li>
+          <li class="nav-item active">
+            <!--<a class="nav-link" href="../php/verificalogin.php?logout=logout">Sair</a>-->
+            <button class="nav-link" onclick="sair()">Sair</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <script>
+    function sair(){
+      if (window.confirm("Você realmente deseja sair?")) {
+        window.open("../php/verificalogin.php?logout=logout");
+        }
+    }
+  </script>
 </body>
 </html>
