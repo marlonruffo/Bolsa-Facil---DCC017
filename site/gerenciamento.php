@@ -165,6 +165,8 @@
         </div>
     </div>
 
+    <?php include('footer.php'); ?>
+
     <!-- Modal Visualizar Bolsa -->
     <div class="modal" tabindex="-1" role="dialog" id="visualizarBolsa">
         <div class="modal-dialog" role="document">
@@ -268,7 +270,6 @@
 
 
     <div style="height: 300px;"></div>
-    <?php include('footer.php'); ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

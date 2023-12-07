@@ -7,10 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/navbar.css">
-
+    <style>
+    .corDeFundo {
+      background-color: #B22D30;
+    }
+    </style>
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+<body> 
+  <nav class="navbar navbar-expand-lg corDeFundo navbar-dark fixed-top">
     <a class="navbar-brand" href="#">
       <img src="../img/logo.png" alt="Logo"width="55px" height="26px" class="d-inline-block align-text-top">
       Bolsa Fácil
