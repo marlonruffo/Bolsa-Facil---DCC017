@@ -1,5 +1,6 @@
-<div class="form-row">
-                            <div class="form-group col-md-6">
+<div class="form id="frmCadProjeto" name="frmCadProjeto"">
+<input type="hidden" class="form-control" id="idProjeto" name="idProjeto" value="<?php echo $_POST['projeto_id']?>">
+    <div class="form-group col-md-6">
                                 <label for="inputField1">Título:</label>
                                 <input type="text" class="form-control" id="inputField1" placeholder="Digite algo...">
                             </div>

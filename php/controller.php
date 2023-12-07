@@ -63,7 +63,7 @@ function opcao($passo){
     if($_SESSION['user_tipo'] == 1){// opções do login de aluno
         switch ($passo) {
             case 'index':
-                require("../site/bolsas.php");
+                require("../site/gerenciamentoAluno.php");
                 break;
             case 'ver_perfil':
                 require("../site/perfilAluno.php");
@@ -97,6 +97,9 @@ function opcao($passo){
                 break;
             case 'cadastrar_projeto':
                 require("../site/cadastroProjeto.php");
+                break;
+            case 'ver_bolsa_id':
+                require("../site/modal_edita_projeto.php");
                 break;
         }
     }else{

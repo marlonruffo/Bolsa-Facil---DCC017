@@ -116,3 +116,13 @@ function formataDateTime(datetime){
 	
 	return ano + "-" + mes + "-" + dia;
 }
+
+function carrega_projeto_id(projeto_id) {
+
+    var dados = { projeto_id: projeto_id }
+    var url = "../php/controller.php?p=ver_bolsa_id";
+
+    $.post(url, dados, function (retorno) {
+        $('#body').html(retorno);
+    });
+}

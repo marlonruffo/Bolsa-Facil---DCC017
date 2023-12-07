@@ -59,7 +59,7 @@
                                         <td><?=data($linha['data_inicio_processo'])?></td>
                                         <td><?=data($linha['data_fim_processo'])?></td>
                                         <td class="text-center">
-                                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa">
+                                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa" onclick="carrega_projeto_id(<?=$linha['idProjeto']?>)">
                                             <ion-icon name="create-outline"></ion-icon>
                                         </button>
                                         </td>
@@ -237,7 +237,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="body"></div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary botaoSalvarModal">Editar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -303,6 +303,7 @@
 		<script src="../assets/js/locale/pt-br.js"></script>
 		<script type="text/javascript" src="../assets/js/bootstrap-datetimepicker.js"></script>
         <script src="../js/Validacoes.js" type="text/javascript"></script>
+        <script src="../js/cadProjeto.js" type="text/javascript"></script>
         <script>
 			$(document).ready(function() {
                 new DataTable('#tabelaProjetosProf');
