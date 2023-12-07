@@ -105,6 +105,10 @@ function opcao($passo){
                     echo "Erro ao inscrever!";
                 }
                 break;
+
+            case 'ver_projetos_inscritos':
+                require("../site/ver_projetos_aluno_inscrito.php");
+                break;
         }
     }else if($_SESSION['user_tipo'] == 2){// opções login de professor
         switch ($passo) {

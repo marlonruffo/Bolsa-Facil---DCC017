@@ -143,5 +143,12 @@ class Aluno extends Usuario
             }
         }
     }
+
+    public function buscaProjetosInsc(){
+        include ('conecta.php');
+        $sql = "SELECT * FROM aluno_inscreve_se_projeto as aip INNER JOIN aluno as a INNER JOIN projeto as p ON aip.fk_Aluno_matricula = a.matricula AND aip.fk_Projeto_idProjeto = p.idProjeto  WHERE aip.fk_Aluno_matricula = '$this->matricula';";
+        $resultado = mysqli_query($conexao, $sql);
+        return $resultado;
+    }
 }
 ?>

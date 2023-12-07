@@ -34,7 +34,11 @@
           <li class="nav-item active">
             <a class="nav-link" href="../php/controller.php?p=ver_perfil">Perfil - <?php echo $_SESSION['user_nome']; ?></a>
           </li>
-        
+          <?php if($_SESSION['user_tipo'] == 1){
+          ?> <li class="nav-item active">
+             <a class="nav-link" href="../php/controller.php?p=ver_projetos_inscritos">Ver inscrições</a>
+            </li><?php
+          }?>
           <?php if($_SESSION['user_tipo'] == 2){
           ?> <!--<li class="nav-item active">
              <a class="nav-link" href="../php/controller.php?p=cadastrar_prerequisitos">Cadastrar Pré Requisitos</a>
