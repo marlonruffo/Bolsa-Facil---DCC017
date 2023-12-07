@@ -50,12 +50,9 @@
 <body>
 
     <?php include('navbar.php'); ?>
-    <h2 class="text-primary text-center">Lista de Alunos</h2>
 
     <div class="content">
         <img src="/img/contato.png" class="img-fluid contatoimagem" alt="">
-
-
         <section class="contato">
             <div class="text-center">
                 <a class="navbar-brand" href="#">
