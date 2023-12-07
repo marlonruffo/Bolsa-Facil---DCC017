@@ -36,7 +36,7 @@
                                         <th>Quantidade de Vagas</th>
                                         <th>Início</th>
                                         <th>Fim</th>
-                                        <th>Editar</th>
+                                        <th>Ver</th>
                                     </tr>
                                 </thead>
                             <tbody>
@@ -76,7 +76,7 @@
 
                 <form>
                     <div class="modal-header">
-                        <h5 class="modal-title">Editar Bolsa</h5>
+                        <h5 class="modal-title">Bolsa</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
