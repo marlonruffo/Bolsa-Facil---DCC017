@@ -94,7 +94,7 @@ $(function(){
 
             $.post(url, dados, function (retorno) {
                 alert(retorno);
-                window.location.href = '../site/perfilAluno.php';
+                window.location.href = '../php/controller.php?p=ver_perfil';
             });
         }else{
             alert(erro);

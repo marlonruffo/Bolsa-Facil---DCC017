@@ -83,7 +83,7 @@ $(function(){
 
             $.post(url, dados, function (retorno) {
                 alert(retorno);
-                window.location.href = '../site/perfilProfessor.php';
+                window.location.href = '../php/controller.php?p=ver_perfil';
             });
         }else{
             alert(erro);
