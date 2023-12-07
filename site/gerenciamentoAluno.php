@@ -20,11 +20,7 @@
 <body>
 
     <?php include('navbar.php'); ?>
-    <div class="text-right">
-        <a href="../php/controller.php?p=cadastrar_projeto">
-            <button class="btn btn-primary btncriar rounded mr-3 my-3" data-toggle="modal">Cadastrar Projeto</button>
-        </a>
-    </div>
+
     <section id="main-content">
 		<section class="wrapper">
 
@@ -36,7 +32,7 @@
                             <table class="table table-striped table-advance table-hover mx-auto" id="tabelaProjetosProf">
                                 <thead>
                                     <tr>
-                                        <th><i class="fa fa-tag"></i>Nome</th>
+                                    <th><i class="fa fa-tag"></i>Nome</th>
                                         <th>Tipo</th>
                                         <th>Método de Entrada</th>
                                         <th>Quantidade de Vagas</th>
@@ -46,10 +42,10 @@
                                     </tr>
                                 </thead>
                             <tbody>
-                                <?php include("../php/Professor.php");
-                                $professor = new Professor();
-                                $professor->setSIAPE($_SESSION['user_login']);
-                                $resultado = $professor->buscaProjetosProf();
+                                <?php include("../php/aluno.php");
+                                $aluno = new aluno();
+                                $aluno->setMatricula($_SESSION['user_login']);
+                                $resultado = $aluno->buscaProjetosAluno();
                                 while($linha = mysqli_fetch_array($resultado)){ ?>
                                     <tr>
                                         <td><?=$linha['nomeProjeto']?></td>

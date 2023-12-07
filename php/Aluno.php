@@ -84,6 +84,14 @@ class Aluno extends Usuario
             return $resultado; 
     }
 
+    public function buscaProjetosAluno(){
+        include ('conecta.php');
+        // $sql = "SELECT * FROM projeto WHERE DATE(data_fim_processo) > CURDATE()";
+        $sql = "SELECT * FROM projeto WHERE data_fim_processo > NOW()";
+        $resultado = mysqli_query($conexao, $sql);
+        return $resultado; 
+    }
+
     public function buscaAluno($matricula){
         include ('conecta.php');
         $sql = "SELECT * FROM aluno WHERE matricula = '$matricula';";
