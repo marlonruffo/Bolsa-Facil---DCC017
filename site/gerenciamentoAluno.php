@@ -38,7 +38,7 @@
                                         <th>Quantidade de Vagas</th>
                                         <th>Início</th>
                                         <th>Fim</th>
-                                        <th>Editar</th>
+                                        <th>Ver</th>
                                     </tr>
                                 </thead>
                             <tbody>
