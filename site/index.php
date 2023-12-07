@@ -18,7 +18,7 @@
 
     .sobrenos {
       font-weight: 700;
-      margin-top: 20px;
+      margin-top: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -35,6 +35,11 @@
 
     .iceimagem {
       margin-bottom: 20px;
+    }
+
+    .projetoImg {
+      margin-bottom: 20px;
+      margin-top: 20px;
     }
 
     .apresentacao {
@@ -130,7 +135,7 @@
     <h1 class="titulo corTexto">Sobre nós</h1>
     <p class="apresentacao corTexto">O BolsaFácil é uma solução de software desenvolvida sob medida para a Universidade Federal de Juiz de Fora (UFJF). Seu principal propósito é simplificar e aprimorar a comunicação entre professores e alunos em relação à divulgação de uma ampla gama de oportunidades de projetos acadêmicos. Este sistema abrange várias categorias de bolsas, incluindo Iniciação científica, Projetos de extensão, Treinamento profissional e Monitorias.Visamos facilitar a divulgação de oportunidades de bolsas acadêmicas por parte dos professores da UFJF.
     </p>
-    <img src="../img/projeotdepesquisa.jpg" class="img-fluid iceimagem" alt="">
+    <img src="../img/projeotdepesquisa.jpg" class="img-fluid projetoImg" alt="">
   </Section>
 
   <div class="content">
@@ -167,22 +172,22 @@
         </form>
       </div>
     </section>
+  </div>
+
+  <footer class="collorFooter text-white text-center py-3">
+    <a href="https://www2.ufjf.br/minhaufjf/bolsas-e-oportunidades/" target="_blank">
+      <img src="../img/logoUfjf.png" alt="logoUfjf" width="55px" height="50px" class="d-inline-block align-text-top">
+    </a>
+    <br>
+    <div class="collorLetra">
+      Home &bull; Contato <br>
+      &copy; 2023 Copyright: BolsaFacil. Todos os direitos reservados.
     </div>
+  </footer>
 
-    <footer class="collorFooter text-white text-center py-3">
-      <a href="https://www2.ufjf.br/minhaufjf/bolsas-e-oportunidades/" target="_blank">
-        <img src="../img/logoUfjf.png" alt="logoUfjf" width="55px" height="50px" class="d-inline-block align-text-top">
-      </a>
-      <br>
-      <div class="collorLetra">
-        Home &bull; Contato <br>
-        &copy; 2023 Copyright: BolsaFacil. Todos os direitos reservados.
-      </div>
-    </footer>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 
 </html>
