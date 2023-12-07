@@ -116,11 +116,11 @@ class Projeto
         return $this;
     }
 
-    public function adicionaProjeto ($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $siapeProfessor){
+    public function adicionaProjeto ($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $preRequisitos, $siapeProfessor){
         include("conecta.php");
         include("Bolsa.php");
-        $sql = "INSERT INTO projeto (nomeProjeto, tipoProjeto, metodoDeEntrada, qtdVagas , descricao, fk_Professor_siape, data_inicio_processo, data_fim_processo) 
-			VALUES ('$nomeProjeto', '$tipoProjeto' ,'$metodoDeEntrada','$qtdVagas','$descricao','$siapeProfessor','$data_inicio_processo', '$data_fim_processo');";
+        $sql = "INSERT INTO projeto (nomeProjeto, tipoProjeto, metodoDeEntrada, qtdVagas , descricao, fk_Professor_siape, data_inicio_processo, data_fim_processo, pre_requisito) 
+			VALUES ('$nomeProjeto', '$tipoProjeto' ,'$metodoDeEntrada','$qtdVagas','$descricao','$siapeProfessor','$data_inicio_processo', '$data_fim_processo' , '$preRequisitos');";
             if(mysqli_query($conexao, $sql)){
                 $id_projeto = mysqli_insert_id($conexao);
                 for($i = 1; $i <= $qtdVagas; $i++){
@@ -140,10 +140,17 @@ class Projeto
         return $resultado;
     }
 
-    public function editaProjeto ($idProjeto, $nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas){
+    public function editaProjeto ($idProjeto, $nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $preRequisitos){
         include("conecta.php");
-        $sql = "UPDATE projeto SET nomeProjeto= '$nomeProjeto', tipoProjeto = '$tipoProjeto', metodoDeEntrada = '$metodoDeEntrada', qtdVagas = '$qtdVagas', descricao= '$descricao', data_inicio_processo = '$data_inicio_processo', data_fim_processo = '$data_fim_processo'  WHERE idProjeto = '$idProjeto';";
+        $sql = "UPDATE projeto SET nomeProjeto= '$nomeProjeto', pre_requisito = '$preRequisitos', tipoProjeto = '$tipoProjeto', metodoDeEntrada = '$metodoDeEntrada', qtdVagas = '$qtdVagas', descricao= '$descricao', data_inicio_processo = '$data_inicio_processo', data_fim_processo = '$data_fim_processo'  WHERE idProjeto = '$idProjeto';";
 		return mysqli_query($conexao, $sql);
+    }
+
+    public function buscaAlunosProjeto($idProjeto){
+        include ('conecta.php');
+        $sql = "SELECT *FROM aluno_inscreve_se_projeto AS aip INNER JOIN aluno a INNER JOIN projeto p ON aip.fk_Aluno_matricula = a.matricula AND aip.fk_Projeto_idProjeto = p.idProjeto WHERE aip.fk_Projeto_idProjeto = '$idProjeto'; ";
+        $resultado = mysqli_query($conexao, $sql);
+        return $resultado;
     }
 
 }

@@ -34,6 +34,10 @@
 				<label class="labelForms" for="descricao">Descrição:</label>
 				<textarea type="text" class="form-control formss" id="descricao" name="descricao" placeholder="Escreva os detalhes do projeto."></textarea>
 			</div>
+			<div class="form-group">
+				<label class="labelForms" for="descricao">Pré-Requisitos:</label>
+				<textarea type="text" class="form-control formss" id="preRequisitos" name="preRequisitos" placeholder="Escreva os pré-requisitos do projeto."></textarea>
+			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label class="labelForms" for="vagaRemunerada">Início processo seletivo:</label>

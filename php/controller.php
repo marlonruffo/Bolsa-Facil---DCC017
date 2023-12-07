@@ -149,7 +149,8 @@ function opcao($passo){
                 $data_fim_processo = $_POST['data_fim_processo'];
                 $metodoDeEntrada = $_POST['metodoDeEntrada'];
                 $qtdVagas = $_POST['qtdVagas'];
-                if($projeto->editaProjeto($idProjeto, $nomeProjeto, $tipoProjeto, $descricao, $data_inicio_processo, $data_fim_processo, $metodoDeEntrada, $qtdVagas)){
+                $preRequisitos = $_POST['preRequisitos'];
+                if($projeto->editaProjeto($idProjeto, $nomeProjeto, $tipoProjeto, $descricao, $data_inicio_processo, $data_fim_processo, $metodoDeEntrada, $qtdVagas, $preRequisitos)){
                     echo "Projeto editado com sucesso!";
                 }else{
                     echo "Erro ao editar projeto!";
@@ -159,6 +160,12 @@ function opcao($passo){
 
             case 'cadastrar_prerequisitos':
                 require('../site/cadastrarPRequisito.php');
+                break;
+
+            case 'ver_alunos_inscritos':
+                $idProjeto = $_GET['idProjeto'];
+                $nomeProjeto = $_GET['nomeProjeto'];
+                require("../site/alunosInscritos.php");
                 break;
 
         }

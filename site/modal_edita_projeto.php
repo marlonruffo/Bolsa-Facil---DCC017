@@ -17,6 +17,10 @@
 				<label class="labelForms" for="descricao">Descrição:</label>
 				<textarea type="text" class="form-control formss" id="descricao" name="descricao" <?php if($_SESSION['user_tipo'] == 1) echo 'disabled'; ?>><?php echo $projeto_id['descricao'] ?></textarea>
 			</div>
+			<div class="form-group">
+				<label class="labelForms" for="descricao">Pré-Requisitos:</label>
+				<textarea type="text" class="form-control formss" id="preRequisitos" name="preRequisitos" placeholder="Escreva os pré-requisitos do projeto."<?php if($_SESSION['user_tipo'] == 1) echo 'disabled'; ?>><?php echo $projeto_id['pre_requisito'] ?></textarea>
+			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label class="labelForms" for="vagaRemunerada">Início processo seletivo:</label>
@@ -72,7 +76,7 @@
 				</div>-->
 
                 <?php if($_SESSION['user_tipo'] == 2){?>
-                    <button type="button" class="btn btn-primary">Ver Alunos Inscritos</button>
+                    <button type="button" class="btn btn-primary" onclick="verAlunosInscritos()">Ver Alunos Inscritos</button>
                 <?php } ?>
 			</div>
 </form>

@@ -36,9 +36,9 @@
           </li>
         
           <?php if($_SESSION['user_tipo'] == 2){
-          ?> <li class="nav-item active">
+          ?> <!--<li class="nav-item active">
              <a class="nav-link" href="../php/controller.php?p=cadastrar_prerequisitos">Cadastrar Pré Requisitos</a>
-            </li><?php
+            </li>--><?php
           }?>
         
           <li class="nav-item active">

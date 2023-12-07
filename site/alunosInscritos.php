@@ -27,43 +27,35 @@
             <div class="row">
                 <div class="col-md-12">
                     <div style="overflow-x: auto;">
-                    <h4><i class="fa fa-angle-right"></i><?php echo $projeto_id['nomeProjeto'] ?></h4>
+                    <h4><i class="fa fa-angle-right"></i>Alunos cadastrados no projeto <?php echo $nomeProjeto?></h4>
                         <hr>
                             <table class="table table-striped table-advance table-hover mx-auto" id="tabelaProjetosProf">
                                 <thead>
                                     <tr>
-                                    <th><i class="fa fa-tag"></i>Nome</th>
+                                    <th><i class="fa fa-tag"></i>Matrícula</th>
+                                        <th>Nome</th>
                                         <th>Email</th>
+                                        <th>Data Ingresso</th>
                                         <th>Curso</th>
-                                        <th>Período</th>
-                                        <th>Perfil</th>
+                                        <th>Periodo</th>
+                                        <th>Telefone</th>
                                     </tr>
                                 </thead>
                             <tbody>
-                            <tbody>
-                                <?php include("../php/Professor.php");
-                                include("../php/Projeto.php");
-                                $projeto= new Projeto();
-                                $professor = new Professor();
-                                
-                                $resultado = $professor->buscaAlunosInscritos($projeto['idProjeto']);
-                                while($linha = mysqli_fetch_array($resultado)){ ?>
-                                    <tr>
-                                        <td></td>
-                                        <td><?=$linha['nome']?></td>
-                                        <td><?=$linha['email']?></td>
-                                        <td><?=$linha['curso']?></td>
-                                        <td><?=$linha['periodo']?></td>
-                                        <td class="text-center">
-                                        <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa" onclick="carrega_projeto_id(<?=$linha['idProjeto']?>)">
-                                            <ion-icon name="create-outline"></ion-icon>
-                                        </button>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-
-
-                            </tbody>
+                                <?php include("../php/Projeto.php");
+                                    $projeto = new projeto();
+                                    $resultado = $projeto->buscaAlunosProjeto($idProjeto);
+                                    while($linha = mysqli_fetch_array($resultado)){ ?>
+                                        <tr>
+                                            <td><?=$linha['matricula']?></td>
+                                            <td><?=$linha['nome']?></td>
+                                            <td><?=$linha['email']?></td>
+                                            <td><?=data($linha['dataIngresso'])?></td>
+                                            <td><?=$linha['curso']?></td>
+                                            <td><?=$linha['periodo']?></td>
+                                            <td><?=$linha['telefone']?></td>
+                                        </tr>
+                                        <?php } ?>   
 
                             </tbody>
                         </table>
@@ -72,166 +64,6 @@
             </div><!-- /row -->
         </section>
     </section>
-
-    <!-- Modal Criacao de Bolsa -->
-    <div class="modal" tabindex="-1" role="dialog" id="criacaoBolsa">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-                <form>
-                    <div class="modal-header">
-                        <h5 class="modal-title">Criar Bolsa</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField1">Título:</label>
-                                <input type="text" class="form-control" id="inputField1" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField1">Professor responsável:</label>
-                                <input type="text" class="form-control" id="inputField1" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField2">Vagas remuneradas:</label>
-                                <input type="email" class="form-control" id="inputField2" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField3">Vagas voluntárias:</label>
-                                <input type="number" class="form-control" id="inputField3" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField4">Data Ingresso:</label>
-                                <input type="date" class="form-control" id="inputField4" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField5">Telefone:</label>
-                                <input type="text" class="form-control" id="inputField5" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField6">Matrícula:</label>
-                                <input type="text" class="form-control" id="inputField6" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary botaoSalvarModal">Inscrever-se</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Visualizar Bolsa -->
-    <div class="modal" tabindex="-1" role="dialog" id="visualizarBolsa">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-                <form>
-                    <div class="modal-header">
-                        <h5 class="modal-title">Visualizar Bolsa</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField1">Título:</label>
-                                <input type="text" class="form-control" id="inputField1" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField1">Professor responsável:</label>
-                                <input type="text" class="form-control" id="inputField1" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField2">Vagas remuneradas:</label>
-                                <input type="email" class="form-control" id="inputField2" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField3">Vagas voluntárias:</label>
-                                <input type="number" class="form-control" id="inputField3" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField4">Data Ingresso:</label>
-                                <input type="date" class="form-control" id="inputField4" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputField5">Telefone:</label>
-                                <input type="text" class="form-control" id="inputField5" placeholder="Digite algo...">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputField6">Matrícula:</label>
-                                <input type="text" class="form-control" id="inputField6" placeholder="Digite algo...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Editar Bolsa -->
-
-    <div class="modal" tabindex="-1" role="dialog" id="editarBolsa">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-                <form>
-                    <div class="modal-header">
-                        <h5 class="modal-title">Editar Bolsa</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="body"></div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary botaoSalvarModal">Me inscrever</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" tabindex="-1" role="dialog" id="deletarBolsa">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h5 class="modal-title">Deseja deletar a bolsa Titulo ?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary botaoSalvarModal">Deletar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
 
     <div style="height: 300px;"></div>
     <?php include('footer.php'); ?>

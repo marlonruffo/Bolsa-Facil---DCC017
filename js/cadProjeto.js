@@ -6,7 +6,9 @@ function cadastrarProjeto(){
 		$('#data_fim_processo').parent().removeClass('has-error');	
 		$('#metodoDeEntrada').parent().removeClass('has-error');	
 		$('#qtdVagas').parent().removeClass('has-error');	
+		$('#preRequisitos').parent().removeClass('has-error');	
 
+		let preRequisitos = $("#preRequisitos").val();
 		let nomeProjeto = $("#nomeProjeto").val();
 		let tipoProjeto = $("#tipoProjeto").val();
 		let descricao = $('#descricao').val();
@@ -18,7 +20,7 @@ function cadastrarProjeto(){
 
 		var e_voluntaria = [];
         var valor = [];
-		var dados = {nomeProjeto : nomeProjeto, tipoProjeto: tipoProjeto , descricao : descricao , data_inicio_processo : data_inicio_processo , data_fim_processo : data_fim_processo, metodoDeEntrada : metodoDeEntrada , qtdVagas : qtdVagas}
+		var dados = {nomeProjeto : nomeProjeto, tipoProjeto: tipoProjeto , descricao : descricao , data_inicio_processo : data_inicio_processo , data_fim_processo : data_fim_processo, metodoDeEntrada : metodoDeEntrada , qtdVagas : qtdVagas, preRequisitos:preRequisitos}
 
         var erro = "";
 		var faltando = false;
@@ -73,6 +75,7 @@ function cadastrarProjeto(){
 			$('#qtdVagas').parent().addClass('has-error');
 			faltando = true;
 		}
+		
         
         if(!faltando){
             var url = "../php/cadProjeto.php";
@@ -94,7 +97,9 @@ function editaProjeto(){
 	$('#data_fim_processo').parent().removeClass('has-error');	
 	$('#metodoDeEntrada').parent().removeClass('has-error');	
 	$('#qtdVagas').parent().removeClass('has-error');	
+	$('#preRequisitos').parent().removeClass('has-error');	
 
+	let preRequisitos = $("#preRequisitos").val();
 	let idProjeto = $("#idProjeto").val();
 	let nomeProjeto = $("#nomeProjeto").val();
 	let tipoProjeto = $("#tipoProjeto").val();
@@ -105,7 +110,7 @@ function editaProjeto(){
 	let qtdVagas = $('#qtdVagas').val();
 	let i;
 
-	var dados = {idProjeto: idProjeto, nomeProjeto : nomeProjeto, tipoProjeto: tipoProjeto , descricao : descricao , data_inicio_processo : data_inicio_processo , data_fim_processo : data_fim_processo, metodoDeEntrada : metodoDeEntrada , qtdVagas : qtdVagas}
+	var dados = {idProjeto: idProjeto, nomeProjeto : nomeProjeto, tipoProjeto: tipoProjeto , descricao : descricao , data_inicio_processo : data_inicio_processo , data_fim_processo : data_fim_processo, metodoDeEntrada : metodoDeEntrada , qtdVagas : qtdVagas, preRequisitos: preRequisitos}
 
 	var erro = "";
 	var faltando = false;
@@ -151,6 +156,15 @@ function editaProjeto(){
 	}else{
 		alert(erro);
 	}
+}
+
+function verAlunosInscritos(){
+	let idProjeto = $("#idProjeto").val();
+	let nomeProjeto = $("#nomeProjeto").val();
+
+	window.location.href = '../php/controller.php?p=ver_alunos_inscritos&idProjeto='+idProjeto+'&nomeProjeto='+nomeProjeto;
+
+
 }
 
 function formataDateTime(datetime){

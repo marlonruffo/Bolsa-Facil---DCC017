@@ -74,10 +74,10 @@ class Professor extends Usuario
 		return mysqli_query($conexao, $sql);
     }
 
-    public function ProfessorCadastraProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor){
+    public function ProfessorCadastraProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $preRequisitos){
         include("Projeto.php");
         $projeto = new Projeto();
-        if($projeto->adicionaProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $this->SIAPE)){
+        if($projeto->adicionaProjeto($nomeProjeto , $tipoProjeto , $descricao, $data_inicio_processo, $data_fim_processo,  $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $preRequisitos, $this->SIAPE)){
             echo "Projeto cadastrado com sucesso!";
         }else{
             echo "Erro ao cadastrar projeto!";

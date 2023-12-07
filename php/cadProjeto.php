@@ -3,6 +3,7 @@
 	include("Professor.php");
 	
     if(isset($_POST)){
+        $preRequisitos = $_POST['preRequisitos'];
         $nomeProjeto = $_POST['nomeProjeto'];
         $tipoProjeto = $_POST['tipoProjeto'];
         $descricao = $_POST['descricao'];
@@ -19,7 +20,7 @@
         $professor = new Professor();
         $professor->setSIAPE($_SESSION['user_login']);
 
-        echo $professor->ProfessorCadastraProjeto($nomeProjeto, $tipoProjeto, $descricao, $data_inicio_processo, $data_fim_processo, $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor);
+        echo $professor->ProfessorCadastraProjeto($nomeProjeto, $tipoProjeto, $descricao, $data_inicio_processo, $data_fim_processo, $metodoDeEntrada, $qtdVagas, $e_voluntaria, $valor, $preRequisitos);
 
 
     }
