@@ -32,7 +32,7 @@
                             <table class="table table-striped table-advance table-hover mx-auto" id="tabelaProjetosProf">
                                 <thead>
                                     <tr>
-                                    <th><i class="fa fa-tag"></i>Nome</th>
+                                    <th><i class="fa fa-tag"></i>Título</th>
                                         <th>Tipo</th>
                                         <th>Método de Entrada</th>
                                         <th>Quantidade de Vagas</th>
@@ -82,7 +82,7 @@
 
                 <form>
                     <div class="modal-header">
-                        <h5 class="modal-title">Editar Bolsa</h5>
+                        <h5 class="modal-title">Bolsa</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

@@ -30,7 +30,7 @@
                             <table class="table table-striped table-advance table-hover mx-auto" id="tabelaProjetosProf">
                                 <thead>
                                     <tr>
-                                        <th><i class="fa fa-tag"></i>Nome</th>
+                                        <th><i class="fa fa-tag"></i>Título</th>
                                         <th>Tipo</th>
                                         <th>Método de Entrada</th>
                                         <th>Quantidade de Vagas</th>
