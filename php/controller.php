@@ -89,6 +89,22 @@ function opcao($passo){
     
                 require("../site/modal_edita_projeto.php");
                 break;
+            case 'inscreve_aluno_projeto':
+                //echo $_POST['idProjeto']." ".$_SESSION['user_login'];
+                $idProjeto = $_POST['idProjeto'];
+                $idAluno = $_SESSION['user_login'];
+                include("Aluno.php");
+                $aluno = new Aluno();
+                $aluno->setMatricula($idAluno);
+                $resultado = $aluno->alunoInscreve_seProjeto($idProjeto);
+                if($resultado == 1){
+                    echo "Inscrito com sucesso no projeto!";
+                }else if($resultado == 0){
+                    echo "Você já está inscrito no projeto!";
+                }else{
+                    echo "Erro ao inscrever!";
+                }
+                break;
         }
     }else if($_SESSION['user_tipo'] == 2){// opções login de professor
         switch ($passo) {

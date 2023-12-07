@@ -125,5 +125,23 @@ class Aluno extends Usuario
         $sql = "UPDATE aluno SET nome= '$nome', cpf = '$cpf', email = '$email', telefone = '$telefone', dataNasc= '$dataNasc', dataIngresso = '$dataIngresso', senha = '$senha', curso = '$curso', periodo = '$periodo'  WHERE matricula = '$matricula';";
 		return mysqli_query($conexao, $sql);
     }
+
+    public function alunoInscreve_seProjeto($idProjeto){
+        include ('conecta.php');
+        $sql = "SELECT * FROM aluno_inscreve_se_projeto WHERE fk_Projeto_idProjeto= '$idProjeto' AND fk_Aluno_matricula = '$this->matricula';";
+        $resultado = mysqli_query($conexao, $sql);
+        if(mysqli_fetch_array($resultado)){
+            return 0;// já existe
+        }else{
+            $sql = "INSERT INTO aluno_inscreve_se_projeto (fk_Aluno_matricula, fk_Projeto_idProjeto) 
+			VALUES ('$this->matricula', '$idProjeto');";
+            $resultado = mysqli_query($conexao, $sql);
+            if($resultado){
+                return 1; //deu certo
+            }else{
+                return -1; //deu errado
+            }
+        }
+    }
 }
 ?>

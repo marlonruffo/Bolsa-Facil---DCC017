@@ -19,15 +19,14 @@
 
 <body>
 
-    <?php include('navbar.php'); ?>
-    <div class="text-right">
-        <a href="../php/controller.php?p=cadastrar_projeto">
-            <button class="btn btn-primary btncriar rounded mr-3 my-3" data-toggle="modal">Cadastrar Projeto</button>
-        </a>
-    </div>
+    <?php  include('navbar.php'); ?>
     <section id="main-content">
+    <div class="text-right">
+            <a href="../php/controller.php?p=cadastrar_projeto">
+                <button class="btn btn-primary btncriar rounded mr-3 my-3" style="margin-top: 10em;">Cadastrar Projeto</button>
+            </a>
+            </div>
 		<section class="wrapper">
-
             <div class="row">
                 <div class="col-md-12">
                     <div style="overflow-x: auto;">

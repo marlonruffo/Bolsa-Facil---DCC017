@@ -103,6 +103,20 @@
       color: black;
     }
   </style>
+
+  <script>
+    function validarFormulario() {
+      var nome = document.forms["formContato"]["nome"].value;
+      var email = document.forms["formContato"]["email"].value;
+      var assunto = document.forms["formContato"]["assunto"].value;
+      var textoArea = document.forms["formContato"]["textoArea"].value;
+
+      if (nome == "" || email == "" || assunto == "" || textoArea == "") {
+        alert("Por favor, preencha todos os campos do formulário.");
+        return false;
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -148,27 +162,27 @@
         </a>
       </div>
       <div class="formulario mx-auto col-md-4">
-        <form class="my-3">
+        <form class="my-3" action="../php/envia.php" name="formContato" method="POST" onsubmit="return validarFormulario()">
           <div class="text-center">
             <img src="../img/logo.png" alt="Logo" width="150px" height="70px" class="d-inline-block align-text-top">
           </div>
           <div class="form-group">
             <label for="exampleInputName">Nome:</label>
-            <input type="text" class="form-control" id="exampleInputName" placeholder="Digite seu nome">
+            <input type="text" name="nome" class="form-control" id="exampleInputName" placeholder="Digite seu nome">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email:</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email">
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email">
           </div>
           <div class="form-group">
             <label for="exampleInputSubject">Assunto:</label>
-            <input type="text" class="form-control" id="exampleInputSubject" placeholder="Digite seu assunto">
+            <input type="text" name="assunto" class="form-control" id="exampleInputSubject" placeholder="Digite seu assunto">
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Texto:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Digite seu texto" rows="3"></textarea>
+            <textarea class="form-control" name="textoArea" id="exampleFormControlTextarea1" placeholder="Digite seu texto" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn text-light corDeFundo mx-auto d-block">Enviar</button>
+          <button type="submit" name="formContato" class="btn text-light corDeFundo mx-auto d-block">Enviar</button>
         </form>
       </div>
     </section>

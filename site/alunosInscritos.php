@@ -27,33 +27,33 @@
             <div class="row">
                 <div class="col-md-12">
                     <div style="overflow-x: auto;">
-                    <h4><i class="fa fa-angle-right"></i>Projetos Cadastrados:</h4>
+                    <h4><i class="fa fa-angle-right"></i><?php echo $projeto_id['nomeProjeto'] ?></h4>
                         <hr>
                             <table class="table table-striped table-advance table-hover mx-auto" id="tabelaProjetosProf">
                                 <thead>
                                     <tr>
                                     <th><i class="fa fa-tag"></i>Nome</th>
-                                        <th>Tipo</th>
-                                        <th>Método de Entrada</th>
-                                        <th>Quantidade de Vagas</th>
-                                        <th>Início</th>
-                                        <th>Fim</th>
-                                        <th>Editar</th>
+                                        <th>Email</th>
+                                        <th>Curso</th>
+                                        <th>Período</th>
+                                        <th>Perfil</th>
                                     </tr>
                                 </thead>
                             <tbody>
-                                <?php include("../php/aluno.php");
-                                $aluno = new aluno();
-                                $aluno->setMatricula($_SESSION['user_login']);
-                                $resultado = $aluno->buscaProjetosAluno();
+                            <tbody>
+                                <?php include("../php/Professor.php");
+                                include("../php/Projeto.php");
+                                $projeto= new Projeto();
+                                $professor = new Professor();
+                                
+                                $resultado = $professor->buscaAlunosInscritos($projeto['idProjeto']);
                                 while($linha = mysqli_fetch_array($resultado)){ ?>
                                     <tr>
-                                        <td><?=$linha['nomeProjeto']?></td>
-                                        <td><?=$linha['tipoProjeto']?></td>
-                                        <td><?=$linha['metodoDeEntrada']?></td>
-                                        <td><?=$linha['qtdVagas']?></td>
-                                        <td><?=data($linha['data_inicio_processo'])?></td>
-                                        <td><?=data($linha['data_fim_processo'])?></td>
+                                        <td></td>
+                                        <td><?=$linha['nome']?></td>
+                                        <td><?=$linha['email']?></td>
+                                        <td><?=$linha['curso']?></td>
+                                        <td><?=$linha['periodo']?></td>
                                         <td class="text-center">
                                         <button type="button" class="btn btn-secondary botaotabela" data-toggle="modal" data-target="#editarBolsa" onclick="carrega_projeto_id(<?=$linha['idProjeto']?>)">
                                             <ion-icon name="create-outline"></ion-icon>
@@ -61,7 +61,9 @@
                                         </td>
                                     </tr>
                                     <?php } ?>
-                                
+
+
+                            </tbody>
 
                             </tbody>
                         </table>
@@ -201,7 +203,7 @@
                     </div>
                     <div class="modal-body" id="body"></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary botaoSalvarModal" onclick="confirmarInscricao()">Me inscrever</button>
+                        <button type="submit" class="btn btn-primary botaoSalvarModal">Me inscrever</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                 </form>
