@@ -141,6 +141,10 @@ function opcao($passo){
 
                 break;
 
+            case 'cadastrar_prerequisitos':
+                require('../site/cadastrarPRequisito.php');
+                break;
+
         }
     }else{
         echo "erro!";

@@ -92,5 +92,31 @@ class Professor extends Usuario
         $resultado = mysqli_query($conexao, $sql);
         return $resultado;
     }
+    
+    public function ProfessorCadastraPRequisito($requisitos)
+    {
+        include("conecta.php");
+    
+        $sql = "INSERT INTO prerequisito (Descricao, fk_Professor_siape) VALUES (?, ?);";
+        $resultado = mysqli_prepare($conexao, $sql);
+    
+        if (!$resultado) {
+            return "Erro ao preparar a declaração SQL: " . mysqli_error($conexao);
+        }
+    
+        foreach ($requisitos as $requisito) {
+            mysqli_stmt_bind_param($resultado, "ss", $requisito, $this->SIAPE);
+            $result = mysqli_stmt_execute($resultado);
+    
+            if (!$result) {
+                return "Erro ao cadastrar pré-requisito: " . mysqli_stmt_error($resultado);
+            }
+        }
+        mysqli_stmt_close($resultado);
+    
+        return "Pré-requisitos cadastrados com sucesso!";
+    }
+     
+
 }
 ?>
